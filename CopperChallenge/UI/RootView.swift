@@ -17,7 +17,8 @@ struct RootView: View {
     var body: some View {
         Group {
             if viewModel.hasCachedOrders {
-                OrdersListView(viewModel: viewModel)
+                OrdersListView()
+                    .environment(\.managedObjectContext, CachedOrdersDataProvider.shared.container.viewContext)
             } else {
                 DownloadTransactionsView(viewModel: viewModel)
             }

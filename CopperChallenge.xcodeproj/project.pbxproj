@@ -10,7 +10,6 @@
 		6375C05D27BEC2D8008D0DC8 /* CopperChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375C05C27BEC2D8008D0DC8 /* CopperChallengeApp.swift */; };
 		6375C06127BEC2DC008D0DC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6375C06027BEC2DC008D0DC8 /* Assets.xcassets */; };
 		6375C06427BEC2DC008D0DC8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6375C06327BEC2DC008D0DC8 /* Preview Assets.xcassets */; };
-		6375C06627BEC2DC008D0DC8 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375C06527BEC2DC008D0DC8 /* Persistence.swift */; };
 		6375C06927BEC2DC008D0DC8 /* CopperChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6375C06727BEC2DC008D0DC8 /* CopperChallenge.xcdatamodeld */; };
 		6375C07D27BEC2DC008D0DC8 /* CopperChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375C07C27BEC2DC008D0DC8 /* CopperChallengeUITests.swift */; };
 		6375C07F27BEC2DC008D0DC8 /* CopperChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375C07E27BEC2DC008D0DC8 /* CopperChallengeUITestsLaunchTests.swift */; };
@@ -84,7 +83,6 @@
 		6375C05C27BEC2D8008D0DC8 /* CopperChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopperChallengeApp.swift; sourceTree = "<group>"; };
 		6375C06027BEC2DC008D0DC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6375C06327BEC2DC008D0DC8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		6375C06527BEC2DC008D0DC8 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		6375C06827BEC2DC008D0DC8 /* CopperChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CopperChallenge.xcdatamodel; sourceTree = "<group>"; };
 		6375C06E27BEC2DC008D0DC8 /* CopperChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CopperChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6375C07827BEC2DC008D0DC8 /* CopperChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CopperChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,7 +191,6 @@
 				98F0303727C1697200AA1651 /* Resources */,
 				98F0302327C14D7800AA1651 /* UI */,
 				6375C05C27BEC2D8008D0DC8 /* CopperChallengeApp.swift */,
-				6375C06527BEC2DC008D0DC8 /* Persistence.swift */,
 				6375C06727BEC2DC008D0DC8 /* CopperChallenge.xcdatamodeld */,
 				6375C06227BEC2DC008D0DC8 /* Preview Content */,
 				98F02FF527C13ABD00AA1651 /* README.md */,
@@ -529,7 +526,6 @@
 				98F02FFC27C13BD700AA1651 /* OrdersDataProvider.swift in Sources */,
 				98F0300627C13E8200AA1651 /* NetworkingError.swift in Sources */,
 				98F0305F27C175B500AA1651 /* LoadingState.swift in Sources */,
-				6375C06627BEC2DC008D0DC8 /* Persistence.swift in Sources */,
 				98F02FFE27C13C1200AA1651 /* CopperEndpoint.swift in Sources */,
 				98F0303227C1632F00AA1651 /* ThemeManager.swift in Sources */,
 				98F0302927C1518200AA1651 /* RootView.swift in Sources */,

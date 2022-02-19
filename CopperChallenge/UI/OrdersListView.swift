@@ -6,18 +6,16 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct OrdersListView: View {
-    @ObservedObject private var viewModel: OrdersListViewModel
-
-    init(viewModel: OrdersListViewModel) {
-        self.viewModel = viewModel
-    }
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.createdAt, order: .reverse)])
+    private var orders: FetchedResults<Order>
 
     var body: some View {
         LazyVStack {
-            ForEach(viewModel.orderViewModels) { cellViewModel in
-                OrderCellView(viewModel: cellViewModel)
+            ForEach(orders, id: \.orderId) { order in
+                OrderCellView(viewModel: OrderCellViewModel(order: order))
             }
         }
     }

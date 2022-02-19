@@ -16,6 +16,14 @@ protocol NetworkProtocol {
             - responseModelType: `Decodable` conformant type to use for decoding the JSON response
      */
     func decodableRequestPublisher<ResponseModel: Decodable>(for url: URL, responseModelType: ResponseModel.Type) -> AnyPublisher<ResponseModel, NetworkingError>
+
+    /**
+     Decode the JSON response from the specified `URL`
+     - parameters:
+     - url: `URL` to make the request to
+     - responseModelType: `Decodable` conformant type to use for decoding the JSON response
+     */
+    func decodableRequest<ResponseModel: Decodable>(for url: URL, responseModelType: ResponseModel.Type) async throws -> ResponseModel
 }
 
 final class Network: NetworkProtocol {
@@ -56,5 +64,19 @@ final class Network: NetworkProtocol {
                 }
             }
             .eraseToAnyPublisher()
+    }
+
+    func decodableRequest<ResponseModel: Decodable>(for url: URL, responseModelType: ResponseModel.Type) async throws -> ResponseModel {
+        let (data, response) = try await urlSession.data(from: url)
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw NetworkingError.nonHTTPResponse
+        }
+
+        switch httpResponse.statusCode {
+        case 200..<300:
+            return try jsonDecoder.decode(responseModelType, from: data)
+        default:
+            throw NetworkingError.unexpectedStatusCode(httpResponse.statusCode)
+        }
     }
 }

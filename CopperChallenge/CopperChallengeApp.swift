@@ -9,12 +9,10 @@ import SwiftUI
 
 @main
 struct CopperChallengeApp: App {
-    @StateObject private var ordersListViewModel = OrdersListViewModel(dataProvider: OrdersDataProvider())
+    @StateObject private var ordersListViewModel = OrdersListViewModel(dataProvider: RemoteOrdersDataProvider())
 
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-//                .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
             RootView(viewModel: ordersListViewModel)
         }
     }

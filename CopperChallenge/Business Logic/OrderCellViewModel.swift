@@ -12,9 +12,9 @@ public final class OrderCellViewModel {
     public let amount: String
     public let currency: String
     public let orderId: String
+    public let status: String
     /// Formatted transaction date
     public let transactionDate: String
-    public let status: String
 
     private static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -33,6 +33,14 @@ public final class OrderCellViewModel {
         self.orderId = model.orderId
         self.status = model.status.rawValue.capitalized
         self.transactionDate = Self.dateFormatter.string(from: model.createdAt)
+    }
+
+    init(order: Order) {
+        self.amount = order.amount.description
+        self.currency = order.currency
+        self.orderId = order.orderId
+        self.status = order.status
+        self.transactionDate = Self.dateFormatter.string(from: order.createdAt)
     }
 
     static func formattedAmount(model: OrderResponseModel) -> String {

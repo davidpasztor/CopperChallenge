@@ -42,7 +42,11 @@ struct DownloadTransactionsView: View {
     }
 
     private var downloadButton: some View {
-        Button(action: viewModel.downloadOrders) {
+        Button(action: {
+            Task {
+                await viewModel.fetchOrders()
+            }
+        }) {
             Text("Download")
                 .kerning(0.16)
                 .font(.custom(.ibmPlexSans(.semiBold), size: 16))
@@ -55,7 +59,7 @@ struct DownloadTransactionsView: View {
 }
 
 struct DownloadTransactionsView_Previews: PreviewProvider {
-    @StateObject private static var viewModel = OrdersListViewModel(dataProvider: OrdersDataProvider())
+    @StateObject private static var viewModel = OrdersListViewModel(dataProvider: RemoteOrdersDataProvider())
 
     static var previews: some View {
         DownloadTransactionsView(viewModel: viewModel)
