@@ -9,8 +9,8 @@ import Foundation
 
 struct OrderResponseModel: Codable, Equatable {
     let amount: Decimal
-    let currency: String
     let createdAt: Date
+    let currency: String
     let orderId: String
     let status: OrderStatus
     let type: OrderType
@@ -22,7 +22,6 @@ struct OrderResponseModel: Codable, Equatable {
             throw DecodingError.dataCorrupted(.init(codingPath: [CodingKeys.amount], debugDescription: "Expected a String representing a Decimal, but the String couldn't be converted to Decimal", underlyingError: nil))
         }
         self.amount = amount
-        self.currency = try container.decode(String.self, forKey: .currency)
         let rawCreatedAtTimestamp = try container.decode(String.self, forKey: .createdAt)
         guard let createdAtTimestampMs = Int(rawCreatedAtTimestamp) else {
             throw DecodingError.dataCorrupted(.init(codingPath: [CodingKeys.createdAt], debugDescription: "Expected a String representing a timestamp, but the String couldn't be converted to a timestamp", underlyingError: nil))
@@ -30,6 +29,7 @@ struct OrderResponseModel: Codable, Equatable {
         // Convert to seconds
         let createdAtTimeStamp = createdAtTimestampMs / 1000
         self.createdAt = Date(timeIntervalSince1970: TimeInterval(createdAtTimeStamp))
+        self.currency = try container.decode(String.self, forKey: .currency)
         self.orderId = try container.decode(String.self, forKey: .orderId)
         self.status = try container.decode(OrderStatus.self, forKey: .status)
         self.type = try container.decode(OrderType.self, forKey: .type)

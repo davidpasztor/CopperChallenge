@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6375C05D27BEC2D8008D0DC8 /* CopperChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375C05C27BEC2D8008D0DC8 /* CopperChallengeApp.swift */; };
-		6375C05F27BEC2D8008D0DC8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375C05E27BEC2D8008D0DC8 /* ContentView.swift */; };
 		6375C06127BEC2DC008D0DC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6375C06027BEC2DC008D0DC8 /* Assets.xcassets */; };
 		6375C06427BEC2DC008D0DC8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6375C06327BEC2DC008D0DC8 /* Preview Assets.xcassets */; };
 		6375C06627BEC2DC008D0DC8 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375C06527BEC2DC008D0DC8 /* Persistence.swift */; };
@@ -83,7 +82,6 @@
 /* Begin PBXFileReference section */
 		6375C05927BEC2D8008D0DC8 /* CopperChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopperChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6375C05C27BEC2D8008D0DC8 /* CopperChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopperChallengeApp.swift; sourceTree = "<group>"; };
-		6375C05E27BEC2D8008D0DC8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6375C06027BEC2DC008D0DC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6375C06327BEC2DC008D0DC8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6375C06527BEC2DC008D0DC8 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -195,8 +193,6 @@
 				98F0303727C1697200AA1651 /* Resources */,
 				98F0302327C14D7800AA1651 /* UI */,
 				6375C05C27BEC2D8008D0DC8 /* CopperChallengeApp.swift */,
-				6375C05E27BEC2D8008D0DC8 /* ContentView.swift */,
-				6375C06027BEC2DC008D0DC8 /* Assets.xcassets */,
 				6375C06527BEC2DC008D0DC8 /* Persistence.swift */,
 				6375C06727BEC2DC008D0DC8 /* CopperChallenge.xcdatamodeld */,
 				6375C06227BEC2DC008D0DC8 /* Preview Content */,
@@ -340,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				98F0303827C1698000AA1651 /* Fonts */,
+				6375C06027BEC2DC008D0DC8 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -541,7 +538,6 @@
 				98F0305927C16B4500AA1651 /* Font+Theming.swift in Sources */,
 				98F0305B27C16DE700AA1651 /* OrderCellView.swift in Sources */,
 				98F0306127C175F700AA1651 /* View+Loading.swift in Sources */,
-				6375C05F27BEC2D8008D0DC8 /* ContentView.swift in Sources */,
 				6375C05D27BEC2D8008D0DC8 /* CopperChallengeApp.swift in Sources */,
 				98F0305D27C16E0A00AA1651 /* OrderCellViewModel.swift in Sources */,
 			);
