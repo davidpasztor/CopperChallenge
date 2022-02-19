@@ -13,9 +13,24 @@
 		6375C06427BEC2DC008D0DC8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6375C06327BEC2DC008D0DC8 /* Preview Assets.xcassets */; };
 		6375C06627BEC2DC008D0DC8 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375C06527BEC2DC008D0DC8 /* Persistence.swift */; };
 		6375C06927BEC2DC008D0DC8 /* CopperChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6375C06727BEC2DC008D0DC8 /* CopperChallenge.xcdatamodeld */; };
-		6375C07327BEC2DC008D0DC8 /* CopperChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375C07227BEC2DC008D0DC8 /* CopperChallengeTests.swift */; };
 		6375C07D27BEC2DC008D0DC8 /* CopperChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375C07C27BEC2DC008D0DC8 /* CopperChallengeUITests.swift */; };
 		6375C07F27BEC2DC008D0DC8 /* CopperChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375C07E27BEC2DC008D0DC8 /* CopperChallengeUITestsLaunchTests.swift */; };
+		98F02FFC27C13BD700AA1651 /* OrdersDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F02FFB27C13BD700AA1651 /* OrdersDataProvider.swift */; };
+		98F02FFE27C13C1200AA1651 /* CopperEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F02FFD27C13C1200AA1651 /* CopperEndpoint.swift */; };
+		98F0300027C13C9600AA1651 /* OrdersError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F02FFF27C13C9600AA1651 /* OrdersError.swift */; };
+		98F0300427C13E3900AA1651 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0300327C13E3900AA1651 /* Network.swift */; };
+		98F0300627C13E8200AA1651 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0300527C13E8200AA1651 /* NetworkingError.swift */; };
+		98F0300827C13E9A00AA1651 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0300727C13E9A00AA1651 /* NetworkTests.swift */; };
+		98F0300D27C13EF300AA1651 /* CombineXCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0300C27C13EF300AA1651 /* CombineXCTestCase.swift */; };
+		98F0301127C13F1900AA1651 /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0300E27C13F1900AA1651 /* URLProtocolMock.swift */; };
+		98F0301227C13F1900AA1651 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0300F27C13F1900AA1651 /* URLSessionMock.swift */; };
+		98F0301327C13F1900AA1651 /* NetworkMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0301027C13F1900AA1651 /* NetworkMock.swift */; };
+		98F0301527C13FB500AA1651 /* NetworkingError+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0301427C13FB500AA1651 /* NetworkingError+Equatable.swift */; };
+		98F0301727C1406F00AA1651 /* OrderResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0301627C1406F00AA1651 /* OrderResponseModel.swift */; };
+		98F0301927C1419200AA1651 /* OrdersResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0301827C1419200AA1651 /* OrdersResponseModel.swift */; };
+		98F0301B27C143D900AA1651 /* Orders.json in Resources */ = {isa = PBXBuildFile; fileRef = 98F0301A27C143D900AA1651 /* Orders.json */; };
+		98F0301F27C1470D00AA1651 /* OrderResponseModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0301E27C1470D00AA1651 /* OrderResponseModelTests.swift */; };
+		98F0302127C1493500AA1651 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0302027C1493500AA1651 /* JSONLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,10 +59,26 @@
 		6375C06527BEC2DC008D0DC8 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		6375C06827BEC2DC008D0DC8 /* CopperChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CopperChallenge.xcdatamodel; sourceTree = "<group>"; };
 		6375C06E27BEC2DC008D0DC8 /* CopperChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CopperChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6375C07227BEC2DC008D0DC8 /* CopperChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopperChallengeTests.swift; sourceTree = "<group>"; };
 		6375C07827BEC2DC008D0DC8 /* CopperChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CopperChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6375C07C27BEC2DC008D0DC8 /* CopperChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopperChallengeUITests.swift; sourceTree = "<group>"; };
 		6375C07E27BEC2DC008D0DC8 /* CopperChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopperChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		98F02FF527C13ABD00AA1651 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		98F02FFB27C13BD700AA1651 /* OrdersDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersDataProvider.swift; sourceTree = "<group>"; };
+		98F02FFD27C13C1200AA1651 /* CopperEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopperEndpoint.swift; sourceTree = "<group>"; };
+		98F02FFF27C13C9600AA1651 /* OrdersError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersError.swift; sourceTree = "<group>"; };
+		98F0300327C13E3900AA1651 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		98F0300527C13E8200AA1651 /* NetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		98F0300727C13E9A00AA1651 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
+		98F0300C27C13EF300AA1651 /* CombineXCTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombineXCTestCase.swift; sourceTree = "<group>"; };
+		98F0300E27C13F1900AA1651 /* URLProtocolMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = URLProtocolMock.swift; path = CopperChallengeTests/Helpers/URLProtocolMock.swift; sourceTree = SOURCE_ROOT; };
+		98F0300F27C13F1900AA1651 /* URLSessionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = URLSessionMock.swift; path = CopperChallengeTests/Helpers/URLSessionMock.swift; sourceTree = SOURCE_ROOT; };
+		98F0301027C13F1900AA1651 /* NetworkMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkMock.swift; path = CopperChallengeTests/Helpers/NetworkMock.swift; sourceTree = SOURCE_ROOT; };
+		98F0301427C13FB500AA1651 /* NetworkingError+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkingError+Equatable.swift"; sourceTree = "<group>"; };
+		98F0301627C1406F00AA1651 /* OrderResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderResponseModel.swift; sourceTree = "<group>"; };
+		98F0301827C1419200AA1651 /* OrdersResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersResponseModel.swift; sourceTree = "<group>"; };
+		98F0301A27C143D900AA1651 /* Orders.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Orders.json; sourceTree = "<group>"; };
+		98F0301E27C1470D00AA1651 /* OrderResponseModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderResponseModelTests.swift; sourceTree = "<group>"; };
+		98F0302027C1493500AA1651 /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,12 +129,15 @@
 		6375C05B27BEC2D8008D0DC8 /* CopperChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				98F02FFA27C13BC200AA1651 /* Copper API */,
+				98F0300227C13E1400AA1651 /* Networking */,
 				6375C05C27BEC2D8008D0DC8 /* CopperChallengeApp.swift */,
 				6375C05E27BEC2D8008D0DC8 /* ContentView.swift */,
 				6375C06027BEC2DC008D0DC8 /* Assets.xcassets */,
 				6375C06527BEC2DC008D0DC8 /* Persistence.swift */,
 				6375C06727BEC2DC008D0DC8 /* CopperChallenge.xcdatamodeld */,
 				6375C06227BEC2DC008D0DC8 /* Preview Content */,
+				98F02FF527C13ABD00AA1651 /* README.md */,
 			);
 			path = CopperChallenge;
 			sourceTree = "<group>";
@@ -119,7 +153,11 @@
 		6375C07127BEC2DC008D0DC8 /* CopperChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
-				6375C07227BEC2DC008D0DC8 /* CopperChallengeTests.swift */,
+				98F0301D27C146F200AA1651 /* Copper API */,
+				98F0300A27C13EC100AA1651 /* Helpers */,
+				98F0301C27C143DF00AA1651 /* JSON */,
+				98F0300B27C13EC800AA1651 /* Mocks */,
+				98F0300927C13EB100AA1651 /* Networking */,
 			);
 			path = CopperChallengeTests;
 			sourceTree = "<group>";
@@ -131,6 +169,71 @@
 				6375C07E27BEC2DC008D0DC8 /* CopperChallengeUITestsLaunchTests.swift */,
 			);
 			path = CopperChallengeUITests;
+			sourceTree = "<group>";
+		};
+		98F02FFA27C13BC200AA1651 /* Copper API */ = {
+			isa = PBXGroup;
+			children = (
+				98F02FFD27C13C1200AA1651 /* CopperEndpoint.swift */,
+				98F02FFB27C13BD700AA1651 /* OrdersDataProvider.swift */,
+				98F02FFF27C13C9600AA1651 /* OrdersError.swift */,
+				98F0301627C1406F00AA1651 /* OrderResponseModel.swift */,
+				98F0301827C1419200AA1651 /* OrdersResponseModel.swift */,
+			);
+			path = "Copper API";
+			sourceTree = "<group>";
+		};
+		98F0300227C13E1400AA1651 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				98F0300327C13E3900AA1651 /* Network.swift */,
+				98F0300527C13E8200AA1651 /* NetworkingError.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		98F0300927C13EB100AA1651 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				98F0300727C13E9A00AA1651 /* NetworkTests.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		98F0300A27C13EC100AA1651 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				98F0300C27C13EF300AA1651 /* CombineXCTestCase.swift */,
+				98F0302027C1493500AA1651 /* JSONLoader.swift */,
+				98F0301427C13FB500AA1651 /* NetworkingError+Equatable.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		98F0300B27C13EC800AA1651 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				98F0301027C13F1900AA1651 /* NetworkMock.swift */,
+				98F0300E27C13F1900AA1651 /* URLProtocolMock.swift */,
+				98F0300F27C13F1900AA1651 /* URLSessionMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		98F0301C27C143DF00AA1651 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				98F0301A27C143D900AA1651 /* Orders.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		98F0301D27C146F200AA1651 /* Copper API */ = {
+			isa = PBXGroup;
+			children = (
+				98F0301E27C1470D00AA1651 /* OrderResponseModelTests.swift */,
+			);
+			path = "Copper API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +349,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98F0301B27C143D900AA1651 /* Orders.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,8 +367,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98F0300027C13C9600AA1651 /* OrdersError.swift in Sources */,
 				6375C06927BEC2DC008D0DC8 /* CopperChallenge.xcdatamodeld in Sources */,
+				98F0300427C13E3900AA1651 /* Network.swift in Sources */,
+				98F0301927C1419200AA1651 /* OrdersResponseModel.swift in Sources */,
+				98F02FFC27C13BD700AA1651 /* OrdersDataProvider.swift in Sources */,
+				98F0300627C13E8200AA1651 /* NetworkingError.swift in Sources */,
 				6375C06627BEC2DC008D0DC8 /* Persistence.swift in Sources */,
+				98F02FFE27C13C1200AA1651 /* CopperEndpoint.swift in Sources */,
+				98F0301727C1406F00AA1651 /* OrderResponseModel.swift in Sources */,
 				6375C05F27BEC2D8008D0DC8 /* ContentView.swift in Sources */,
 				6375C05D27BEC2D8008D0DC8 /* CopperChallengeApp.swift in Sources */,
 			);
@@ -274,7 +385,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6375C07327BEC2DC008D0DC8 /* CopperChallengeTests.swift in Sources */,
+				98F0301227C13F1900AA1651 /* URLSessionMock.swift in Sources */,
+				98F0301527C13FB500AA1651 /* NetworkingError+Equatable.swift in Sources */,
+				98F0300D27C13EF300AA1651 /* CombineXCTestCase.swift in Sources */,
+				98F0301327C13F1900AA1651 /* NetworkMock.swift in Sources */,
+				98F0302127C1493500AA1651 /* JSONLoader.swift in Sources */,
+				98F0300827C13E9A00AA1651 /* NetworkTests.swift in Sources */,
+				98F0301F27C1470D00AA1651 /* OrderResponseModelTests.swift in Sources */,
+				98F0301127C13F1900AA1651 /* URLProtocolMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
