@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DownloadTransactionsView: View {
+    // TODO: No need to inject a whole VM (unless I move the texts to the VM as well), enough to inject the button action
     @ObservedObject private var viewModel: OrdersListViewModel
 
     init(viewModel: OrdersListViewModel) {
@@ -22,6 +23,7 @@ struct DownloadTransactionsView: View {
                 .font(.custom(.ibmPlexSans(.semiBold), size: 24))
                 .foregroundColor(.textPrimary)
                 .padding(.bottom, 12)
+            // TODO: double check fonts, since they don't seem to be working
             Text("Click \"Download\" to view transaction history")
                 .font(.custom(.ibmPlexSans(.regular), size: 16))
                 .foregroundColor(.textSecondary)
@@ -29,6 +31,7 @@ struct DownloadTransactionsView: View {
             downloadButton
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        // TODO: use themed color
         .background(Color.black)
     }
 
