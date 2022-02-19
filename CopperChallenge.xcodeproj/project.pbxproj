@@ -37,6 +37,25 @@
 		98F0302B27C1519400AA1651 /* OrdersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0302A27C1519400AA1651 /* OrdersListView.swift */; };
 		98F0302D27C1522700AA1651 /* DownloadTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0302C27C1522700AA1651 /* DownloadTransactionsView.swift */; };
 		98F0302F27C152A700AA1651 /* OrdersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0302E27C152A700AA1651 /* OrdersListViewModel.swift */; };
+		98F0303227C1632F00AA1651 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0303127C1632F00AA1651 /* ThemeManager.swift */; };
+		98F0303427C1636E00AA1651 /* Color+Theming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0303327C1636E00AA1651 /* Color+Theming.swift */; };
+		98F0303627C1638400AA1651 /* View+Theming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0303527C1638400AA1651 /* View+Theming.swift */; };
+		98F0304927C169AD00AA1651 /* IBMPlexSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0303A27C169AD00AA1651 /* IBMPlexSans-Thin.ttf */; };
+		98F0304A27C169AD00AA1651 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98F0303B27C169AD00AA1651 /* OFL.txt */; };
+		98F0304B27C169AD00AA1651 /* IBMPlexSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0303C27C169AD00AA1651 /* IBMPlexSans-ThinItalic.ttf */; };
+		98F0304C27C169AD00AA1651 /* IBMPlexSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0303D27C169AD00AA1651 /* IBMPlexSans-LightItalic.ttf */; };
+		98F0304D27C169AD00AA1651 /* IBMPlexSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0303E27C169AD00AA1651 /* IBMPlexSans-ExtraLightItalic.ttf */; };
+		98F0304E27C169AD00AA1651 /* IBMPlexSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0303F27C169AD00AA1651 /* IBMPlexSans-MediumItalic.ttf */; };
+		98F0304F27C169AD00AA1651 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0304027C169AD00AA1651 /* IBMPlexSans-Regular.ttf */; };
+		98F0305027C169AD00AA1651 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0304127C169AD00AA1651 /* IBMPlexSans-Medium.ttf */; };
+		98F0305127C169AE00AA1651 /* IBMPlexSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0304227C169AD00AA1651 /* IBMPlexSans-Italic.ttf */; };
+		98F0305227C169AE00AA1651 /* IBMPlexSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0304327C169AD00AA1651 /* IBMPlexSans-SemiBoldItalic.ttf */; };
+		98F0305327C169AE00AA1651 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0304427C169AD00AA1651 /* IBMPlexSans-SemiBold.ttf */; };
+		98F0305427C169AE00AA1651 /* IBMPlexSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0304527C169AD00AA1651 /* IBMPlexSans-ExtraLight.ttf */; };
+		98F0305527C169AE00AA1651 /* IBMPlexSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0304627C169AD00AA1651 /* IBMPlexSans-BoldItalic.ttf */; };
+		98F0305627C169AE00AA1651 /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0304727C169AD00AA1651 /* IBMPlexSans-Bold.ttf */; };
+		98F0305727C169AE00AA1651 /* IBMPlexSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0304827C169AD00AA1651 /* IBMPlexSans-Light.ttf */; };
+		98F0305927C16B4500AA1651 /* Font+Theming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0305827C16B4500AA1651 /* Font+Theming.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +110,25 @@
 		98F0302A27C1519400AA1651 /* OrdersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListView.swift; sourceTree = "<group>"; };
 		98F0302C27C1522700AA1651 /* DownloadTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTransactionsView.swift; sourceTree = "<group>"; };
 		98F0302E27C152A700AA1651 /* OrdersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListViewModel.swift; sourceTree = "<group>"; };
+		98F0303127C1632F00AA1651 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		98F0303327C1636E00AA1651 /* Color+Theming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theming.swift"; sourceTree = "<group>"; };
+		98F0303527C1638400AA1651 /* View+Theming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Theming.swift"; sourceTree = "<group>"; };
+		98F0303A27C169AD00AA1651 /* IBMPlexSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Thin.ttf"; sourceTree = "<group>"; };
+		98F0303B27C169AD00AA1651 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		98F0303C27C169AD00AA1651 /* IBMPlexSans-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-ThinItalic.ttf"; sourceTree = "<group>"; };
+		98F0303D27C169AD00AA1651 /* IBMPlexSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		98F0303E27C169AD00AA1651 /* IBMPlexSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		98F0303F27C169AD00AA1651 /* IBMPlexSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-MediumItalic.ttf"; sourceTree = "<group>"; };
+		98F0304027C169AD00AA1651 /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
+		98F0304127C169AD00AA1651 /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
+		98F0304227C169AD00AA1651 /* IBMPlexSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Italic.ttf"; sourceTree = "<group>"; };
+		98F0304327C169AD00AA1651 /* IBMPlexSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		98F0304427C169AD00AA1651 /* IBMPlexSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		98F0304527C169AD00AA1651 /* IBMPlexSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		98F0304627C169AD00AA1651 /* IBMPlexSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		98F0304727C169AD00AA1651 /* IBMPlexSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Bold.ttf"; sourceTree = "<group>"; };
+		98F0304827C169AD00AA1651 /* IBMPlexSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Light.ttf"; sourceTree = "<group>"; };
+		98F0305827C16B4500AA1651 /* Font+Theming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Theming.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +182,7 @@
 				98F0302227C14D6E00AA1651 /* Business Logic */,
 				98F02FFA27C13BC200AA1651 /* Copper API */,
 				98F0300227C13E1400AA1651 /* Networking */,
+				98F0303727C1697200AA1651 /* Resources */,
 				98F0302327C14D7800AA1651 /* UI */,
 				6375C05C27BEC2D8008D0DC8 /* CopperChallengeApp.swift */,
 				6375C05E27BEC2D8008D0DC8 /* ContentView.swift */,
@@ -263,11 +302,61 @@
 		98F0302327C14D7800AA1651 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				98F0303027C1632400AA1651 /* Theming */,
 				98F0302C27C1522700AA1651 /* DownloadTransactionsView.swift */,
 				98F0302A27C1519400AA1651 /* OrdersListView.swift */,
 				98F0302827C1518200AA1651 /* RootView.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		98F0303027C1632400AA1651 /* Theming */ = {
+			isa = PBXGroup;
+			children = (
+				98F0303327C1636E00AA1651 /* Color+Theming.swift */,
+				98F0305827C16B4500AA1651 /* Font+Theming.swift */,
+				98F0303127C1632F00AA1651 /* ThemeManager.swift */,
+				98F0303527C1638400AA1651 /* View+Theming.swift */,
+			);
+			path = Theming;
+			sourceTree = "<group>";
+		};
+		98F0303727C1697200AA1651 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				98F0303827C1698000AA1651 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		98F0303827C1698000AA1651 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				98F0303927C1698700AA1651 /* IBM Plex Sans */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		98F0303927C1698700AA1651 /* IBM Plex Sans */ = {
+			isa = PBXGroup;
+			children = (
+				98F0304727C169AD00AA1651 /* IBMPlexSans-Bold.ttf */,
+				98F0304627C169AD00AA1651 /* IBMPlexSans-BoldItalic.ttf */,
+				98F0304527C169AD00AA1651 /* IBMPlexSans-ExtraLight.ttf */,
+				98F0303E27C169AD00AA1651 /* IBMPlexSans-ExtraLightItalic.ttf */,
+				98F0304227C169AD00AA1651 /* IBMPlexSans-Italic.ttf */,
+				98F0304827C169AD00AA1651 /* IBMPlexSans-Light.ttf */,
+				98F0303D27C169AD00AA1651 /* IBMPlexSans-LightItalic.ttf */,
+				98F0304127C169AD00AA1651 /* IBMPlexSans-Medium.ttf */,
+				98F0303F27C169AD00AA1651 /* IBMPlexSans-MediumItalic.ttf */,
+				98F0304027C169AD00AA1651 /* IBMPlexSans-Regular.ttf */,
+				98F0304427C169AD00AA1651 /* IBMPlexSans-SemiBold.ttf */,
+				98F0304327C169AD00AA1651 /* IBMPlexSans-SemiBoldItalic.ttf */,
+				98F0303A27C169AD00AA1651 /* IBMPlexSans-Thin.ttf */,
+				98F0303C27C169AD00AA1651 /* IBMPlexSans-ThinItalic.ttf */,
+				98F0303B27C169AD00AA1651 /* OFL.txt */,
+			);
+			path = "IBM Plex Sans";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,7 +464,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				6375C06427BEC2DC008D0DC8 /* Preview Assets.xcassets in Resources */,
+				98F0305127C169AE00AA1651 /* IBMPlexSans-Italic.ttf in Resources */,
+				98F0305227C169AE00AA1651 /* IBMPlexSans-SemiBoldItalic.ttf in Resources */,
+				98F0304927C169AD00AA1651 /* IBMPlexSans-Thin.ttf in Resources */,
+				98F0305627C169AE00AA1651 /* IBMPlexSans-Bold.ttf in Resources */,
+				98F0305727C169AE00AA1651 /* IBMPlexSans-Light.ttf in Resources */,
+				98F0304E27C169AD00AA1651 /* IBMPlexSans-MediumItalic.ttf in Resources */,
+				98F0304C27C169AD00AA1651 /* IBMPlexSans-LightItalic.ttf in Resources */,
+				98F0305027C169AD00AA1651 /* IBMPlexSans-Medium.ttf in Resources */,
+				98F0304F27C169AD00AA1651 /* IBMPlexSans-Regular.ttf in Resources */,
+				98F0304D27C169AD00AA1651 /* IBMPlexSans-ExtraLightItalic.ttf in Resources */,
+				98F0304A27C169AD00AA1651 /* OFL.txt in Resources */,
+				98F0304B27C169AD00AA1651 /* IBMPlexSans-ThinItalic.ttf in Resources */,
+				98F0305427C169AE00AA1651 /* IBMPlexSans-ExtraLight.ttf in Resources */,
+				98F0305527C169AE00AA1651 /* IBMPlexSans-BoldItalic.ttf in Resources */,
 				6375C06127BEC2DC008D0DC8 /* Assets.xcassets in Resources */,
+				98F0305327C169AE00AA1651 /* IBMPlexSans-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,12 +512,16 @@
 				98F0302B27C1519400AA1651 /* OrdersListView.swift in Sources */,
 				98F0301927C1419200AA1651 /* OrdersResponseModel.swift in Sources */,
 				98F0302D27C1522700AA1651 /* DownloadTransactionsView.swift in Sources */,
+				98F0303427C1636E00AA1651 /* Color+Theming.swift in Sources */,
 				98F02FFC27C13BD700AA1651 /* OrdersDataProvider.swift in Sources */,
 				98F0300627C13E8200AA1651 /* NetworkingError.swift in Sources */,
 				6375C06627BEC2DC008D0DC8 /* Persistence.swift in Sources */,
 				98F02FFE27C13C1200AA1651 /* CopperEndpoint.swift in Sources */,
+				98F0303227C1632F00AA1651 /* ThemeManager.swift in Sources */,
 				98F0302927C1518200AA1651 /* RootView.swift in Sources */,
 				98F0301727C1406F00AA1651 /* OrderResponseModel.swift in Sources */,
+				98F0303627C1638400AA1651 /* View+Theming.swift in Sources */,
+				98F0305927C16B4500AA1651 /* Font+Theming.swift in Sources */,
 				6375C05F27BEC2D8008D0DC8 /* ContentView.swift in Sources */,
 				6375C05D27BEC2D8008D0DC8 /* CopperChallengeApp.swift in Sources */,
 			);
