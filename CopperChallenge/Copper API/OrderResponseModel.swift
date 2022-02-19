@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OrderResponseModel: Codable {
+struct OrderResponseModel: Codable, Equatable {
     let amount: Decimal
     let currency: String
     let createdAt: Date
@@ -45,14 +45,14 @@ struct OrderResponseModel: Codable {
     }
 }
 
-enum OrderStatus: String, Codable {
+enum OrderStatus: String, Codable, Equatable {
     case approved
     case cancelled = "canceled"
     case executed
     case processing
 }
 
-enum OrderType: String, Codable {
+enum OrderType: String, Codable, Equatable {
     case buy
     case deposit
     case sell

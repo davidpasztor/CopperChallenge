@@ -31,6 +31,12 @@
 		98F0301B27C143D900AA1651 /* Orders.json in Resources */ = {isa = PBXBuildFile; fileRef = 98F0301A27C143D900AA1651 /* Orders.json */; };
 		98F0301F27C1470D00AA1651 /* OrderResponseModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0301E27C1470D00AA1651 /* OrderResponseModelTests.swift */; };
 		98F0302127C1493500AA1651 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0302027C1493500AA1651 /* JSONLoader.swift */; };
+		98F0302527C14DB500AA1651 /* OrdersDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0302427C14DB500AA1651 /* OrdersDataProviderTests.swift */; };
+		98F0302727C14E5000AA1651 /* OrdersError+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0302627C14E5000AA1651 /* OrdersError+Equatable.swift */; };
+		98F0302927C1518200AA1651 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0302827C1518200AA1651 /* RootView.swift */; };
+		98F0302B27C1519400AA1651 /* OrdersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0302A27C1519400AA1651 /* OrdersListView.swift */; };
+		98F0302D27C1522700AA1651 /* DownloadTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0302C27C1522700AA1651 /* DownloadTransactionsView.swift */; };
+		98F0302F27C152A700AA1651 /* OrdersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0302E27C152A700AA1651 /* OrdersListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +85,12 @@
 		98F0301A27C143D900AA1651 /* Orders.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Orders.json; sourceTree = "<group>"; };
 		98F0301E27C1470D00AA1651 /* OrderResponseModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderResponseModelTests.swift; sourceTree = "<group>"; };
 		98F0302027C1493500AA1651 /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
+		98F0302427C14DB500AA1651 /* OrdersDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersDataProviderTests.swift; sourceTree = "<group>"; };
+		98F0302627C14E5000AA1651 /* OrdersError+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrdersError+Equatable.swift"; sourceTree = "<group>"; };
+		98F0302827C1518200AA1651 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		98F0302A27C1519400AA1651 /* OrdersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListView.swift; sourceTree = "<group>"; };
+		98F0302C27C1522700AA1651 /* DownloadTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTransactionsView.swift; sourceTree = "<group>"; };
+		98F0302E27C152A700AA1651 /* OrdersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +141,10 @@
 		6375C05B27BEC2D8008D0DC8 /* CopperChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				98F0302227C14D6E00AA1651 /* Business Logic */,
 				98F02FFA27C13BC200AA1651 /* Copper API */,
 				98F0300227C13E1400AA1651 /* Networking */,
+				98F0302327C14D7800AA1651 /* UI */,
 				6375C05C27BEC2D8008D0DC8 /* CopperChallengeApp.swift */,
 				6375C05E27BEC2D8008D0DC8 /* ContentView.swift */,
 				6375C06027BEC2DC008D0DC8 /* Assets.xcassets */,
@@ -206,6 +220,7 @@
 				98F0300C27C13EF300AA1651 /* CombineXCTestCase.swift */,
 				98F0302027C1493500AA1651 /* JSONLoader.swift */,
 				98F0301427C13FB500AA1651 /* NetworkingError+Equatable.swift */,
+				98F0302627C14E5000AA1651 /* OrdersError+Equatable.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -231,9 +246,28 @@
 		98F0301D27C146F200AA1651 /* Copper API */ = {
 			isa = PBXGroup;
 			children = (
+				98F0302427C14DB500AA1651 /* OrdersDataProviderTests.swift */,
 				98F0301E27C1470D00AA1651 /* OrderResponseModelTests.swift */,
 			);
 			path = "Copper API";
+			sourceTree = "<group>";
+		};
+		98F0302227C14D6E00AA1651 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				98F0302E27C152A700AA1651 /* OrdersListViewModel.swift */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		98F0302327C14D7800AA1651 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				98F0302C27C1522700AA1651 /* DownloadTransactionsView.swift */,
+				98F0302A27C1519400AA1651 /* OrdersListView.swift */,
+				98F0302827C1518200AA1651 /* RootView.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,14 +401,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98F0302F27C152A700AA1651 /* OrdersListViewModel.swift in Sources */,
 				98F0300027C13C9600AA1651 /* OrdersError.swift in Sources */,
 				6375C06927BEC2DC008D0DC8 /* CopperChallenge.xcdatamodeld in Sources */,
 				98F0300427C13E3900AA1651 /* Network.swift in Sources */,
+				98F0302B27C1519400AA1651 /* OrdersListView.swift in Sources */,
 				98F0301927C1419200AA1651 /* OrdersResponseModel.swift in Sources */,
+				98F0302D27C1522700AA1651 /* DownloadTransactionsView.swift in Sources */,
 				98F02FFC27C13BD700AA1651 /* OrdersDataProvider.swift in Sources */,
 				98F0300627C13E8200AA1651 /* NetworkingError.swift in Sources */,
 				6375C06627BEC2DC008D0DC8 /* Persistence.swift in Sources */,
 				98F02FFE27C13C1200AA1651 /* CopperEndpoint.swift in Sources */,
+				98F0302927C1518200AA1651 /* RootView.swift in Sources */,
 				98F0301727C1406F00AA1651 /* OrderResponseModel.swift in Sources */,
 				6375C05F27BEC2D8008D0DC8 /* ContentView.swift in Sources */,
 				6375C05D27BEC2D8008D0DC8 /* CopperChallengeApp.swift in Sources */,
@@ -385,7 +423,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98F0302727C14E5000AA1651 /* OrdersError+Equatable.swift in Sources */,
 				98F0301227C13F1900AA1651 /* URLSessionMock.swift in Sources */,
+				98F0302527C14DB500AA1651 /* OrdersDataProviderTests.swift in Sources */,
 				98F0301527C13FB500AA1651 /* NetworkingError+Equatable.swift in Sources */,
 				98F0300D27C13EF300AA1651 /* CombineXCTestCase.swift in Sources */,
 				98F0301327C13F1900AA1651 /* NetworkMock.swift in Sources */,

@@ -11,10 +11,13 @@ import SwiftUI
 struct CopperChallengeApp: App {
     let persistenceController = PersistenceController.shared
 
+    @StateObject private var ordersListViewModel = OrdersListViewModel(dataProvider: OrdersDataProvider())
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//            ContentView()
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            RootView(viewModel: ordersListViewModel)
         }
     }
 }

@@ -8,7 +8,12 @@
 import Combine
 import Foundation
 
-final class OrdersDataProvider {
+protocol OrdersDataProviderProtocol {
+    /// `Publisher` emitting a list of orders
+    func ordersPublisher() -> AnyPublisher<[OrderResponseModel], OrdersError>
+}
+
+final class OrdersDataProvider: OrdersDataProviderProtocol {
     private let network: NetworkProtocol
 
     /**
@@ -28,7 +33,7 @@ final class OrdersDataProvider {
         } catch {
             return Fail(error: .generic(error)).eraseToAnyPublisher()
         }
-        
+
         return network
             .decodableRequestPublisher(for: url, responseModelType: OrdersResponseModel.self)
             .map(\.orders)
