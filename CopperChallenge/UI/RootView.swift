@@ -15,10 +15,27 @@ struct RootView: View {
     }
 
     var body: some View {
-        if viewModel.hasCachedOrders {
-            OrdersListView(viewModel: viewModel)
-        } else {
-            DownloadTransactionsView(viewModel: viewModel)
+        Group {
+            if viewModel.hasCachedOrders {
+                OrdersListView(viewModel: viewModel)
+            } else {
+                DownloadTransactionsView(viewModel: viewModel)
+            }
         }
+        .withLoadingStateIndicator(viewModel.loadingState, loadingView: { loadingView }, errorView: { errorView })
+    }
+
+    @ViewBuilder
+    private var errorView: some View {
+        switch viewModel.loadingState {
+        case let .error(error):
+            Text(error.localizedDescription)
+        default:
+            EmptyView()
+        }
+    }
+
+    private var loadingView: some View {
+        LoadingView()
     }
 }

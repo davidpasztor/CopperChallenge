@@ -16,7 +16,9 @@ struct OrdersListView: View {
 
     var body: some View {
         LazyVStack {
-            
+            ForEach(viewModel.orderViewModels) { cellViewModel in
+                OrderCellView(viewModel: cellViewModel)
+            }
         }
     }
 }
