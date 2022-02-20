@@ -31,8 +31,7 @@ struct DownloadTransactionsView: View {
             downloadButton
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        // TODO: use themed color
-        .background(Color.black)
+        .backgroundColor(.primaryBackground)
     }
 
     private var logo: some View {
@@ -62,6 +61,12 @@ struct DownloadTransactionsView_Previews: PreviewProvider {
     @StateObject private static var viewModel = OrdersListViewModel(dataProvider: RemoteOrdersDataProvider())
 
     static var previews: some View {
-        DownloadTransactionsView(viewModel: viewModel)
+        Group {
+            DownloadTransactionsView(viewModel: viewModel)
+                .preferredColorScheme(.dark)
+
+            DownloadTransactionsView(viewModel: viewModel)
+                .preferredColorScheme(.light)
+        }
     }
 }

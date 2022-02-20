@@ -31,7 +31,7 @@ struct OrderCellView: View {
             .foregroundColor(.textSecondary)
             .padding(.bottom, 11)
             Divider()
-                .background(Color.white.opacity(0.05))
+                .backgroundColor(.listSeparator)
         }
         .padding(.horizontal, 16)
         .padding(.top, 12)

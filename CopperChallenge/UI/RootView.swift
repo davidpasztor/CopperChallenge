@@ -35,6 +35,7 @@ struct RootView: View {
                 }
             }
         }
+        .backgroundColor(.primaryBackground)
     }
 
     @ViewBuilder
