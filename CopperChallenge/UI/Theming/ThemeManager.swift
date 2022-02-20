@@ -9,6 +9,7 @@ struct ThemeManager {
     enum Color: String {
         case brandBackground
         case brandButtonForeground
+        case loadingIndicatorBackground
         case textPrimary
         case textSecondary
     }

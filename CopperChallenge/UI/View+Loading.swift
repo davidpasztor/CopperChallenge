@@ -20,17 +20,14 @@ public extension View {
     func withLoadingStateIndicator<LoadingView: View, ErrorView: View>(_ loadingState: LoadingState, loadingView: () -> LoadingView, errorView: () -> ErrorView) -> some View {
         switch loadingState {
         case .loading:
-            ZStack {
-                loadingView()
-                self
-            }
+            // Display the loading view over the over view the method was called on
+            self
+                .overlay(loadingView())
         case .error:
-            ZStack {
-                errorView()
-                self
-            }
-            // A view might not immediately start loading, so in case of initial case, we shouldn't display the loading view
+            // In case an error was encountered, display only the error view and hide the view the method was called on
+            errorView()
         case .initial, .loaded:
+            // A view might not immediately start loading, so in case of initial case, we shouldn't display the loading view
             self
         }
     }

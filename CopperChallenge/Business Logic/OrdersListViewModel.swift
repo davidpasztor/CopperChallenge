@@ -23,9 +23,9 @@ public final class OrdersListViewModel: ObservableObject {
 
         do {
             try await dataProvider.fetchOrders()
+            loadingState = .loaded
         } catch {
             loadingState = .error(error)
-            print(error)
         }
     }
 }
