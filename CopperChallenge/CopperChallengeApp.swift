@@ -14,6 +14,7 @@ struct CopperChallengeApp: App {
     var body: some Scene {
         WindowGroup {
             RootView(viewModel: ordersListViewModel)
+            // TODO: access this via the VM or at least via the data provider, not via the singleton
                 .environment(\.managedObjectContext, CachedOrdersDataProvider.shared.container.viewContext)
         }
     }

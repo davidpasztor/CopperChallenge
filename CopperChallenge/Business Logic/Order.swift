@@ -19,15 +19,21 @@ final class Order: NSManagedObject {
 
 #if DEBUG
 extension Order {
+    @discardableResult
+    static func createMock(provider: CachedOrdersDataProvider) -> Order {
+        let order = Order(context: provider.container.viewContext)
+        order.amount = NSDecimalNumber(value: Double.random(in: 0...100))
+        order.createdAt = Date()
+        order.currency = ["BTC", "DOGE", "ETH", "ALGO", "MOB", "EOS"].randomElement()!
+        order.orderId = UUID().uuidString
+        order.status = OrderStatus.allCases.randomElement()!.rawValue
+        order.type = OrderType.allCases.randomElement()!.rawValue
+        return order
+    }
+
     static func makePreviews(count: Int, provider: CachedOrdersDataProvider) {
         for _ in 0..<count {
-            let order = Order(context: provider.container.viewContext)
-            order.amount = NSDecimalNumber(value: Double.random(in: 0...100))
-            order.createdAt = Date()
-            order.currency = ["BTC", "DOGE", "ETH", "ALGO", "MOB", "EOS"].randomElement()!
-            order.orderId = UUID().uuidString
-            order.status = OrderStatus.allCases.randomElement()!.rawValue
-            order.type = OrderType.allCases.randomElement()!.rawValue
+            createMock(provider: provider)
         }
     }
 }
