@@ -29,6 +29,11 @@ struct OrderCellView: View {
                 Text(viewModel.status)
             }
             .foregroundColor(.textSecondary)
+            .padding(.bottom, 11)
+            Divider()
+                .background(Color.white.opacity(0.05))
         }
+        .padding(.horizontal, 16)
+        .padding(.top, 12)
     }
 }

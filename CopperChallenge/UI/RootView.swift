@@ -28,8 +28,12 @@ struct RootView: View {
     }
 
     private var ordersListView: some View {
-        List(orders, id: \.orderId) { order in
-            OrderCellView(viewModel: OrderCellViewModel(order: order))
+        ScrollView {
+            LazyVStack {
+                ForEach(orders, id: \.orderId) { order in
+                    OrderCellView(viewModel: OrderCellViewModel(order: order))
+                }
+            }
         }
     }
 
