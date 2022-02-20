@@ -11,9 +11,6 @@ import CoreData
 import OSLog
 
 protocol OrdersDataProviderProtocol {
-    /// `Publisher` emitting a list of orders
-    func ordersPublisher() -> AnyPublisher<[OrderResponseModel], OrdersError>
-
     func fetchOrders() async throws
 }
 
@@ -28,23 +25,6 @@ final class RemoteOrdersDataProvider: OrdersDataProviderProtocol {
     init(network: NetworkProtocol? = nil) {
         self.network = network ?? Network()
         self.cachedOrdersDataProvider = CachedOrdersDataProvider.shared
-    }
-
-    func ordersPublisher() -> AnyPublisher<[OrderResponseModel], OrdersError> {
-        let url: URL
-        do {
-            url = try CopperEndpoint.orders.url
-        } catch let ordersError as OrdersError {
-            return Fail(error: ordersError).eraseToAnyPublisher()
-        } catch {
-            return Fail(error: .generic(error)).eraseToAnyPublisher()
-        }
-
-        return network
-            .decodableRequestPublisher(for: url, responseModelType: OrdersResponseModel.self)
-            .map(\.orders)
-            .mapError { networkingError in .networking(networkingError) }
-            .eraseToAnyPublisher()
     }
 
     func fetchOrders() async throws {
@@ -71,14 +51,6 @@ final class CachedOrdersDataProvider {
             }
         }
 
-        // Enable persistent store remote change notifications
-        description.setOption(true as NSNumber,
-                              forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
-
-        // Enable persistent history tracking
-        description.setOption(true as NSNumber,
-                              forKey: NSPersistentHistoryTrackingKey)
-
         container.viewContext.automaticallyMergesChangesFromParent = false
         container.viewContext.name = "viewContext"
         container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
@@ -88,18 +60,6 @@ final class CachedOrdersDataProvider {
     }()
 
     private let logger = Logger(subsystem: "David.Pasztor.Copper", category: "persistence")
-
-    /// A persistent history token used for fetching transactions from the store.
-    private var lastToken: NSPersistentHistoryToken?
-    private var persistentStoreRemoteChangeSubscription: AnyCancellable?
-
-    private init() {
-        persistentStoreRemoteChangeSubscription = NotificationCenter.default.publisher(for: .NSPersistentStoreRemoteChange).sink { _ in
-            Task {
-                await self.fetchPersistentHistory()
-            }
-        }
-    }
 
     fileprivate func cacheOrders(_ orders: [OrderResponseModel]) async throws {
         guard !orders.isEmpty else { return }
@@ -138,48 +98,6 @@ final class CachedOrdersDataProvider {
             return false
         })
         return batchInsertRequest
-    }
-
-    func fetchPersistentHistory() async {
-        do {
-            try await fetchPersistentHistoryTransactionsAndChanges()
-        } catch {
-            logger.debug("\(error.localizedDescription)")
-        }
-    }
-
-    private func fetchPersistentHistoryTransactionsAndChanges() async throws {
-        let taskContext = newTaskContext()
-        taskContext.name = "persistentHistoryContext"
-        logger.debug("Start fetching persistent history changes from the store...")
-
-        try await taskContext.perform {
-            // Execute the persistent history change since the last transaction.
-            let changeRequest = NSPersistentHistoryChangeRequest.fetchHistory(after: self.lastToken)
-            let historyResult = try taskContext.execute(changeRequest) as? NSPersistentHistoryResult
-            if let history = historyResult?.result as? [NSPersistentHistoryTransaction],
-               !history.isEmpty {
-                self.mergePersistentHistoryChanges(from: history)
-                return
-            }
-
-            self.logger.debug("No persistent history transactions found.")
-            throw OrdersError.dataPersistenceError
-        }
-
-        logger.debug("Finished merging history changes.")
-    }
-
-    private func mergePersistentHistoryChanges(from history: [NSPersistentHistoryTransaction]) {
-        self.logger.debug("Received \(history.count) persistent history transactions.")
-        // Update view context with objectIDs from history change request.
-        let viewContext = container.viewContext
-        viewContext.perform {
-            for transaction in history {
-                viewContext.mergeChanges(fromContextDidSave: transaction.objectIDNotification())
-                self.lastToken = transaction.token
-            }
-        }
     }
 
     /// Creates and configures a private queue context.

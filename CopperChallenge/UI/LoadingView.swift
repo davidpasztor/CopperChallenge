@@ -25,4 +25,3 @@ struct LoadingView: View {
             .tint(ThemeManager.Color.textPrimary.swiftUI)
     }
 }
-
