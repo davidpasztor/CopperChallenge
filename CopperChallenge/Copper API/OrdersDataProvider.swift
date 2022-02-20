@@ -74,26 +74,20 @@ final class CachedOrdersDataProvider {
         return !orders.isEmpty
     }
 
-    private let logger = Logger(subsystem: "David.Pasztor.Copper", category: "persistence")
-
     fileprivate func cacheOrders(_ orders: [OrderResponseModel]) async throws {
         guard !orders.isEmpty else { return }
 
-        logger.debug("caching \(orders.count) orders")
-
+        // Create a new background context using a private queue so that we don't block the main thread will saving the data
         let taskContext = newTaskContext()
-        // Add name and author to identify source of persistent history changes.
-        taskContext.name = "cacheContext"
-        taskContext.transactionAuthor = "cacheOrders"
 
         let mainContext = container.viewContext
 
+        // Asynchronously perform the batch insertions
         try await taskContext.perform {
+            // Use an NSBatchInsertRequest, which operates at the SQL level and doesn't load objects into memory and is faster then the other insertion methods
             let batchInsertRequest = self.newBatchInsertRequest(orders: orders)
             batchInsertRequest.resultType = .objectIDs
-            self.logger.debug("NSBatchInsertRequest created, about to execute it")
             let fetchResult = try taskContext.execute(batchInsertRequest)
-            self.logger.debug("NSBatchInsertRequest executed")
             if let batchInsertResult = fetchResult as? NSBatchInsertResult,
                let insertedIDs = batchInsertResult.result as? [NSManagedObjectID], !insertedIDs.isEmpty {
                 // We ran the batch insert on a background context, so we need to sync the changes to the viewContext as well
@@ -108,15 +102,23 @@ final class CachedOrdersDataProvider {
         var index = 0
         let total = orders.count
 
-        logger.debug("creating NSBatchInsertRequest")
-
-        // Provide one dictionary at a time when the closure is called.
-        let batchInsertRequest = NSBatchInsertRequest(entity: Order.entity(), dictionaryHandler: { dictionary in
+        let batchInsertRequest = NSBatchInsertRequest(entity: Order.entity(), managedObjectHandler: { managedObject in
             guard index < total else { return true }
-            dictionary.addEntries(from: orders[index].dictionaryValue)
+
+            if let order = managedObject as? Order {
+                let orderResponseModel = orders[index]
+                order.amount = NSDecimalNumber(decimal: orderResponseModel.amount)
+                order.currency = orderResponseModel.currency
+                order.createdAt = orderResponseModel.createdAt
+                order.orderId = orderResponseModel.orderId
+                order.status = orderResponseModel.status.rawValue
+                order.type = orderResponseModel.type.rawValue
+            }
+
             index += 1
             return false
         })
+
         return batchInsertRequest
     }
 
@@ -126,18 +128,5 @@ final class CachedOrdersDataProvider {
         let taskContext = container.newBackgroundContext()
         taskContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         return taskContext
-    }
-}
-
-private extension OrderResponseModel {
-    var dictionaryValue: [String: Any] {
-        [
-            "amount": NSDecimalNumber(decimal: amount),
-            "createdAt": createdAt,
-            "currency": currency,
-            "orderId": orderId,
-            "status": status.rawValue,
-            "type": type.rawValue
-        ]
     }
 }
