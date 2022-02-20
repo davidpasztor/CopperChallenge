@@ -19,14 +19,12 @@ struct RootView: View {
     }
 
     var body: some View {
-        Group {
-            if !orders.isEmpty {
-                ordersListView
-            } else {
-                DownloadTransactionsView(viewModel: viewModel)
-            }
+        if case .loaded = viewModel.loadingState {
+            ordersListView
+        } else {
+            DownloadTransactionsView(viewModel: viewModel)
+                .withLoadingStateIndicator(viewModel.loadingState, loadingView: { loadingView }, errorView: { errorView })
         }
-        .withLoadingStateIndicator(viewModel.loadingState, loadingView: { loadingView }, errorView: { errorView })
     }
 
     private var ordersListView: some View {
