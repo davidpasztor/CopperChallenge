@@ -23,7 +23,6 @@ struct DownloadTransactionsView: View {
                 .font(.custom(.ibmPlexSans(.semiBold), size: 24))
                 .foregroundColor(.textPrimary)
                 .padding(.bottom, 12)
-            // TODO: double check fonts, since they don't seem to be working
             Text("Click \"Download\" to view transaction history")
                 .font(.custom(.ibmPlexSans(.regular), size: 16))
                 .foregroundColor(.textSecondary)

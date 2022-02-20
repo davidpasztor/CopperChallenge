@@ -50,7 +50,6 @@
 		98F0305327C169AE00AA1651 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0304427C169AD00AA1651 /* IBMPlexSans-SemiBold.ttf */; };
 		98F0305427C169AE00AA1651 /* IBMPlexSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0304527C169AD00AA1651 /* IBMPlexSans-ExtraLight.ttf */; };
 		98F0305527C169AE00AA1651 /* IBMPlexSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0304627C169AD00AA1651 /* IBMPlexSans-BoldItalic.ttf */; };
-		98F0305627C169AE00AA1651 /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0304727C169AD00AA1651 /* IBMPlexSans-Bold.ttf */; };
 		98F0305727C169AE00AA1651 /* IBMPlexSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0304827C169AD00AA1651 /* IBMPlexSans-Light.ttf */; };
 		98F0305927C16B4500AA1651 /* Font+Theming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0305827C16B4500AA1651 /* Font+Theming.swift */; };
 		98F0305B27C16DE700AA1651 /* OrderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0305A27C16DE700AA1651 /* OrderCellView.swift */; };
@@ -59,6 +58,7 @@
 		98F0306127C175F700AA1651 /* View+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0306027C175F700AA1651 /* View+Loading.swift */; };
 		98F0306327C1779A00AA1651 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0306227C1779A00AA1651 /* LoadingView.swift */; };
 		98F0306727C29B7900AA1651 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0306627C29B7900AA1651 /* Order.swift */; };
+		98F0306927C2E00100AA1651 /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0304727C169AD00AA1651 /* IBMPlexSans-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +135,7 @@
 		98F0306027C175F700AA1651 /* View+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Loading.swift"; sourceTree = "<group>"; };
 		98F0306227C1779A00AA1651 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		98F0306627C29B7900AA1651 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		98F0306827C2DB7600AA1651 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +186,7 @@
 		6375C05B27BEC2D8008D0DC8 /* CopperChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				98F0306827C2DB7600AA1651 /* Info.plist */,
 				98F0302227C14D6E00AA1651 /* Business Logic */,
 				98F02FFA27C13BC200AA1651 /* Copper API */,
 				98F0300227C13E1400AA1651 /* Networking */,
@@ -476,12 +478,12 @@
 				98F0305127C169AE00AA1651 /* IBMPlexSans-Italic.ttf in Resources */,
 				98F0305227C169AE00AA1651 /* IBMPlexSans-SemiBoldItalic.ttf in Resources */,
 				98F0304927C169AD00AA1651 /* IBMPlexSans-Thin.ttf in Resources */,
-				98F0305627C169AE00AA1651 /* IBMPlexSans-Bold.ttf in Resources */,
 				98F0305727C169AE00AA1651 /* IBMPlexSans-Light.ttf in Resources */,
 				98F0304E27C169AD00AA1651 /* IBMPlexSans-MediumItalic.ttf in Resources */,
 				98F0304C27C169AD00AA1651 /* IBMPlexSans-LightItalic.ttf in Resources */,
 				98F0305027C169AD00AA1651 /* IBMPlexSans-Medium.ttf in Resources */,
 				98F0304F27C169AD00AA1651 /* IBMPlexSans-Regular.ttf in Resources */,
+				98F0306927C2E00100AA1651 /* IBMPlexSans-Bold.ttf in Resources */,
 				98F0304D27C169AD00AA1651 /* IBMPlexSans-ExtraLightItalic.ttf in Resources */,
 				98F0304A27C169AD00AA1651 /* OFL.txt in Resources */,
 				98F0304B27C169AD00AA1651 /* IBMPlexSans-ThinItalic.ttf in Resources */,
@@ -708,6 +710,7 @@
 				DEVELOPMENT_TEAM = HTKJ5L46U5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CopperChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -737,6 +740,7 @@
 				DEVELOPMENT_TEAM = HTKJ5L46U5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CopperChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
