@@ -19,7 +19,7 @@ struct RootView: View {
     }
 
     var body: some View {
-        if case .loaded = viewModel.loadingState {
+        if viewModel.hasCachedOrders {
             ordersListView
         } else {
             DownloadTransactionsView(viewModel: viewModel)

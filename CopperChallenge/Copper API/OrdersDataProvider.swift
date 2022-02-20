@@ -12,11 +12,17 @@ import OSLog
 
 protocol OrdersDataProviderProtocol {
     func fetchOrders() async throws
+
+    func hasCachedOrders() throws -> Bool
 }
 
 final class RemoteOrdersDataProvider: OrdersDataProviderProtocol {
     private let network: NetworkProtocol
     private let cachedOrdersDataProvider: CachedOrdersDataProvider
+
+    func hasCachedOrders() throws -> Bool {
+        try cachedOrdersDataProvider.hasCachedOrders()
+    }
 
     /**
      Designated initialiser.
@@ -28,6 +34,8 @@ final class RemoteOrdersDataProvider: OrdersDataProviderProtocol {
     }
 
     func fetchOrders() async throws {
+        guard try !cachedOrdersDataProvider.hasCachedOrders() else { return }
+
         let url = try CopperEndpoint.orders.url
         let rootResponse = try await network.decodableRequest(for: url, responseModelType: OrdersResponseModel.self)
         try await cachedOrdersDataProvider.cacheOrders(rootResponse.orders)
@@ -59,6 +67,13 @@ final class CachedOrdersDataProvider {
         return container
     }()
 
+    func hasCachedOrders() throws -> Bool {
+        let fetchRequest = NSFetchRequest<Order>(entityName: "Order")
+        let context = container.viewContext
+        let orders = try context.fetch(fetchRequest)
+        return !orders.isEmpty
+    }
+
     private let logger = Logger(subsystem: "David.Pasztor.Copper", category: "persistence")
 
     fileprivate func cacheOrders(_ orders: [OrderResponseModel]) async throws {
@@ -71,16 +86,21 @@ final class CachedOrdersDataProvider {
         taskContext.name = "cacheContext"
         taskContext.transactionAuthor = "cacheOrders"
 
+        let mainContext = container.viewContext
+
         try await taskContext.perform {
             let batchInsertRequest = self.newBatchInsertRequest(orders: orders)
+            batchInsertRequest.resultType = .objectIDs
             self.logger.debug("NSBatchInsertRequest created, about to execute it")
             let fetchResult = try taskContext.execute(batchInsertRequest)
             self.logger.debug("NSBatchInsertRequest executed")
             if let batchInsertResult = fetchResult as? NSBatchInsertResult,
-               let success = batchInsertResult.result as? Bool, success {
-                return
+               let insertedIDs = batchInsertResult.result as? [NSManagedObjectID], !insertedIDs.isEmpty {
+                // We ran the batch insert on a background context, so we need to sync the changes to the viewContext as well
+                NSManagedObjectContext.mergeChanges(fromRemoteContextSave: [NSInsertedObjectsKey: insertedIDs], into: [mainContext])
+            } else {
+                throw OrdersError.dataPersistenceError
             }
-            throw OrdersError.dataPersistenceError
         }
     }
 
