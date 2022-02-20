@@ -32,7 +32,6 @@
 		98F0302527C14DB500AA1651 /* OrdersDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0302427C14DB500AA1651 /* OrdersDataProviderTests.swift */; };
 		98F0302727C14E5000AA1651 /* OrdersError+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0302627C14E5000AA1651 /* OrdersError+Equatable.swift */; };
 		98F0302927C1518200AA1651 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0302827C1518200AA1651 /* RootView.swift */; };
-		98F0302B27C1519400AA1651 /* OrdersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0302A27C1519400AA1651 /* OrdersListView.swift */; };
 		98F0302D27C1522700AA1651 /* DownloadTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0302C27C1522700AA1651 /* DownloadTransactionsView.swift */; };
 		98F0302F27C152A700AA1651 /* OrdersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0302E27C152A700AA1651 /* OrdersListViewModel.swift */; };
 		98F0303227C1632F00AA1651 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0303127C1632F00AA1651 /* ThemeManager.swift */; };
@@ -108,7 +107,6 @@
 		98F0302427C14DB500AA1651 /* OrdersDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersDataProviderTests.swift; sourceTree = "<group>"; };
 		98F0302627C14E5000AA1651 /* OrdersError+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrdersError+Equatable.swift"; sourceTree = "<group>"; };
 		98F0302827C1518200AA1651 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		98F0302A27C1519400AA1651 /* OrdersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListView.swift; sourceTree = "<group>"; };
 		98F0302C27C1522700AA1651 /* DownloadTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTransactionsView.swift; sourceTree = "<group>"; };
 		98F0302E27C152A700AA1651 /* OrdersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListViewModel.swift; sourceTree = "<group>"; };
 		98F0303127C1632F00AA1651 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
@@ -311,7 +309,6 @@
 				98F0302C27C1522700AA1651 /* DownloadTransactionsView.swift */,
 				98F0306227C1779A00AA1651 /* LoadingView.swift */,
 				98F0305A27C16DE700AA1651 /* OrderCellView.swift */,
-				98F0302A27C1519400AA1651 /* OrdersListView.swift */,
 				98F0302827C1518200AA1651 /* RootView.swift */,
 				98F0306027C175F700AA1651 /* View+Loading.swift */,
 			);
@@ -518,7 +515,6 @@
 				98F0300027C13C9600AA1651 /* OrdersError.swift in Sources */,
 				6375C06927BEC2DC008D0DC8 /* CopperChallenge.xcdatamodeld in Sources */,
 				98F0300427C13E3900AA1651 /* Network.swift in Sources */,
-				98F0302B27C1519400AA1651 /* OrdersListView.swift in Sources */,
 				98F0306327C1779A00AA1651 /* LoadingView.swift in Sources */,
 				98F0301927C1419200AA1651 /* OrdersResponseModel.swift in Sources */,
 				98F0302D27C1522700AA1651 /* DownloadTransactionsView.swift in Sources */,

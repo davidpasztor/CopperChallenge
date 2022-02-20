@@ -21,11 +21,14 @@ struct OrderCellView: View {
                 Spacer()
                 Text(viewModel.amount)
             }
+            .foregroundColor(.textPrimary)
+
             HStack(spacing: 0) {
                 Text(viewModel.transactionDate)
                 Spacer()
                 Text(viewModel.status)
             }
+            .foregroundColor(.textSecondary)
         }
     }
 }

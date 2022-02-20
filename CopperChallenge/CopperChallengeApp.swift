@@ -14,6 +14,7 @@ struct CopperChallengeApp: App {
     var body: some Scene {
         WindowGroup {
             RootView(viewModel: ordersListViewModel)
+                .environment(\.managedObjectContext, CachedOrdersDataProvider.shared.container.viewContext)
         }
     }
 }

@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct RootView: View {
     @ObservedObject private var viewModel: OrdersListViewModel
+
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.createdAt, order: .reverse)])
+    private var orders: FetchedResults<Order>
 
     init(viewModel: OrdersListViewModel) {
         self.viewModel = viewModel
@@ -16,14 +20,27 @@ struct RootView: View {
 
     var body: some View {
         Group {
-            if viewModel.hasCachedOrders {
-                OrdersListView()
-                    .environment(\.managedObjectContext, CachedOrdersDataProvider.shared.container.viewContext)
+            if !orders.isEmpty {
+                ordersListView
             } else {
                 DownloadTransactionsView(viewModel: viewModel)
             }
         }
         .withLoadingStateIndicator(viewModel.loadingState, loadingView: { loadingView }, errorView: { errorView })
+        .onChange(of: viewModel.hasCachedOrders) { _ in
+            print("FetchedResults contains \(orders.count) orders")
+        }
+    }
+
+    private var ordersListView: some View {
+        List(orders, id: \.orderId) { order in
+            OrderCellView(viewModel: OrderCellViewModel(order: order))
+        }
+//        LazyVStack {
+//            ForEach(orders, id: \.orderId) { order in
+//                OrderCellView(viewModel: OrderCellViewModel(order: order))
+//            }
+//        }
     }
 
     @ViewBuilder
