@@ -28,9 +28,9 @@ final class RemoteOrdersDataProvider: OrdersDataProviderProtocol {
      Designated initialiser.
      - parameter network: `NetworkProtocol` instance to use for the networking. If no value is passed in, a default instance will be created.
      */
-    init(network: NetworkProtocol? = nil) {
+    init(network: NetworkProtocol? = nil, cachedOrdersDataProvider: CachedOrdersDataProvider = .shared) {
         self.network = network ?? Network()
-        self.cachedOrdersDataProvider = CachedOrdersDataProvider.shared
+        self.cachedOrdersDataProvider = cachedOrdersDataProvider
     }
 
     func fetchOrders() async throws {
@@ -45,12 +45,23 @@ final class RemoteOrdersDataProvider: OrdersDataProviderProtocol {
 final class CachedOrdersDataProvider {
     static let shared = CachedOrdersDataProvider()
 
+    /// A `CachedOrdersDataProvider` to be used by SwiftUI previews
+    static let preview: CachedOrdersDataProvider = {
+        let provider = CachedOrdersDataProvider(inMemory: true)
+        Order.makePreviews(count: 10, provider: provider)
+        return provider
+    }()
+
     /// A persistent container to set up the Core Data stack.
-    lazy var container: NSPersistentContainer = {
+    lazy private(set) var container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "CopperChallenge")
 
         guard let description = container.persistentStoreDescriptions.first else {
             fatalError("Failed to retrieve a persistent store description.")
+        }
+
+        if inMemory {
+            description.url = URL(fileURLWithPath: "/dev/null")
         }
 
         container.loadPersistentStores { storeDescription, error in
@@ -66,6 +77,12 @@ final class CachedOrdersDataProvider {
         container.viewContext.shouldDeleteInaccessibleFaults = true
         return container
     }()
+
+    private let inMemory: Bool
+
+    private init(inMemory: Bool = false) {
+        self.inMemory = inMemory
+    }
 
     func hasCachedOrders() throws -> Bool {
         let fetchRequest = NSFetchRequest<Order>(entityName: "Order")

@@ -47,3 +47,22 @@ struct RootView: View {
         LoadingView()
     }
 }
+
+struct RootView_Previews: PreviewProvider {
+    private static let ordersDataProvider = CachedOrdersDataProvider.preview
+    @StateObject private static var viewModel = OrdersListViewModel(dataProvider: RemoteOrdersDataProvider(cachedOrdersDataProvider: ordersDataProvider))
+
+    static var previews: some View {
+        Group {
+            RootView(viewModel: viewModel)
+                .preferredColorScheme(.dark)
+                .environment(\.managedObjectContext,
+                              ordersDataProvider.container.viewContext)
+
+            RootView(viewModel: viewModel)
+                .preferredColorScheme(.light)
+                .environment(\.managedObjectContext,
+                              ordersDataProvider.container.viewContext)
+        }
+    }
+}

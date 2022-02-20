@@ -45,14 +45,14 @@ struct OrderResponseModel: Codable, Equatable {
     }
 }
 
-enum OrderStatus: String, Codable, Equatable {
+enum OrderStatus: String, Codable, Equatable, CaseIterable {
     case approved
     case cancelled = "canceled"
     case executed
     case processing
 }
 
-enum OrderType: String, Codable, Equatable {
+enum OrderType: String, Codable, Equatable, CaseIterable {
     case buy
     case deposit
     case sell
