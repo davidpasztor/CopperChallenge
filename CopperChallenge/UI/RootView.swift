@@ -27,20 +27,12 @@ struct RootView: View {
             }
         }
         .withLoadingStateIndicator(viewModel.loadingState, loadingView: { loadingView }, errorView: { errorView })
-        .onChange(of: viewModel.hasCachedOrders) { _ in
-            print("FetchedResults contains \(orders.count) orders")
-        }
     }
 
     private var ordersListView: some View {
         List(orders, id: \.orderId) { order in
             OrderCellView(viewModel: OrderCellViewModel(order: order))
         }
-//        LazyVStack {
-//            ForEach(orders, id: \.orderId) { order in
-//                OrderCellView(viewModel: OrderCellViewModel(order: order))
-//            }
-//        }
     }
 
     @ViewBuilder

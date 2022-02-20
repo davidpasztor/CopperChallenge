@@ -17,15 +17,6 @@ protocol OrdersDataProviderProtocol {
     func fetchOrders() async throws
 }
 
-final class Order: NSManagedObject {
-    @NSManaged var amount: NSDecimalNumber
-    @NSManaged var createdAt: Date
-    @NSManaged var currency: String
-    @NSManaged var orderId: String
-    @NSManaged var status: String
-    @NSManaged var type: String
-}
-
 final class RemoteOrdersDataProvider: OrdersDataProviderProtocol {
     private let network: NetworkProtocol
     private let cachedOrdersDataProvider: CachedOrdersDataProvider

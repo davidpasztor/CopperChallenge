@@ -26,43 +26,41 @@ public final class OrderCellViewModel {
 
     private static let baseCurrency = "ETH"
 
-    init(model: OrderResponseModel) {
-        // TODO: if amount is > 1000, divide by 1000 and add K to the formatted amount
-        self.amount = Self.formattedAmount(model: model)
-        self.currency = Self.formattedCurrency(model: model)
-        self.orderId = model.orderId
-        self.status = model.status.rawValue.capitalized
-        self.transactionDate = Self.dateFormatter.string(from: model.createdAt)
-    }
-
     init(order: Order) {
-        self.amount = order.amount.description
-        self.currency = order.currency
+        if let orderType = OrderType(rawValue: order.type) {
+            self.amount = Self.formattedAmount(order.amount.decimalValue, currency: order.currency, type: orderType)
+            self.currency = Self.formatted(currency: order.currency, orderType: orderType)
+        } else {
+            // TODO: figure out a way to store the enum type in CoreData and hence avoid this fallback
+            self.amount = ""
+            self.currency = ""
+        }
         self.orderId = order.orderId
-        self.status = order.status
+        self.status = order.status.capitalized
         self.transactionDate = Self.dateFormatter.string(from: order.createdAt)
     }
 
-    static func formattedAmount(model: OrderResponseModel) -> String {
+    // TODO: if amount is > 1000, divide by 1000 and add K to the formatted amount
+    static func formattedAmount(_ amount: Decimal, currency: String, type: OrderType) -> String {
         let prefix: String
-        switch model.type {
+        switch type {
         case .sell, .withdraw:
             prefix = "-"
         case .buy, .deposit:
             prefix = "+"
         }
 
-        return "\(prefix)\(model.amount) \(model.currency)"
+        return "\(prefix)\(amount) \(currency)"
     }
 
-    static func formattedCurrency(model: OrderResponseModel) -> String {
-        switch model.type {
+    static func formatted(currency: String, orderType: OrderType) -> String {
+        switch orderType {
         case .deposit:
-            return "In \(model.currency)"
+            return "In \(currency)"
         case .withdraw:
-            return "Out \(model.currency)"
+            return "Out \(currency)"
         case .buy, .sell:
-            return "\(model.currency) → \(Self.baseCurrency)"
+            return "\(currency) → \(Self.baseCurrency)"
         }
     }
 }
