@@ -9,7 +9,7 @@ import XCTest
 import Combine
 @testable import CopperChallenge
 
-final class NetworkTests: CombineXCTestCase {
+final class NetworkTests: XCTestCase {
 
     override func tearDown() {
         super.tearDown()

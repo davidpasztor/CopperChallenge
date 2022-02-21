@@ -19,7 +19,7 @@ public final class OrderCellViewModel {
     private static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         // need to hardcode the locale since we're using a hardcoded date format
-        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.locale = Locale(identifier: "en_GB")
         formatter.dateFormat = "MMM d, yyyy h:mm a"
         return formatter
     }()

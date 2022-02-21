@@ -19,7 +19,6 @@
 		98F0300427C13E3900AA1651 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0300327C13E3900AA1651 /* Network.swift */; };
 		98F0300627C13E8200AA1651 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0300527C13E8200AA1651 /* NetworkingError.swift */; };
 		98F0300827C13E9A00AA1651 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0300727C13E9A00AA1651 /* NetworkTests.swift */; };
-		98F0300D27C13EF300AA1651 /* CombineXCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0300C27C13EF300AA1651 /* CombineXCTestCase.swift */; };
 		98F0301127C13F1900AA1651 /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0300E27C13F1900AA1651 /* URLProtocolMock.swift */; };
 		98F0301227C13F1900AA1651 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0300F27C13F1900AA1651 /* URLSessionMock.swift */; };
 		98F0301327C13F1900AA1651 /* NetworkMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0301027C13F1900AA1651 /* NetworkMock.swift */; };
@@ -62,6 +61,8 @@
 		98F0306D27C39F9E00AA1651 /* CachedOrdersDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0306C27C39F9E00AA1651 /* CachedOrdersDataProvider.swift */; };
 		98F0306F27C3A22900AA1651 /* DecodingError+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0306E27C3A22900AA1651 /* DecodingError+Equatable.swift */; };
 		98F0307127C3AB1800AA1651 /* OrdersPersistentStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0307027C3AB1800AA1651 /* OrdersPersistentStorageMock.swift */; };
+		98F0307427C3AD9A00AA1651 /* OrderCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0307327C3AD9A00AA1651 /* OrderCellViewModelTests.swift */; };
+		98F0307627C3AE6B00AA1651 /* Order+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0307527C3AE6B00AA1651 /* Order+Mock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,7 +99,6 @@
 		98F0300327C13E3900AA1651 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		98F0300527C13E8200AA1651 /* NetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		98F0300727C13E9A00AA1651 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
-		98F0300C27C13EF300AA1651 /* CombineXCTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombineXCTestCase.swift; sourceTree = "<group>"; };
 		98F0300E27C13F1900AA1651 /* URLProtocolMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = URLProtocolMock.swift; path = CopperChallengeTests/Helpers/URLProtocolMock.swift; sourceTree = SOURCE_ROOT; };
 		98F0300F27C13F1900AA1651 /* URLSessionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = URLSessionMock.swift; path = CopperChallengeTests/Helpers/URLSessionMock.swift; sourceTree = SOURCE_ROOT; };
 		98F0301027C13F1900AA1651 /* NetworkMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkMock.swift; path = CopperChallengeTests/Helpers/NetworkMock.swift; sourceTree = SOURCE_ROOT; };
@@ -142,6 +142,8 @@
 		98F0306C27C39F9E00AA1651 /* CachedOrdersDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedOrdersDataProvider.swift; sourceTree = "<group>"; };
 		98F0306E27C3A22900AA1651 /* DecodingError+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DecodingError+Equatable.swift"; sourceTree = "<group>"; };
 		98F0307027C3AB1800AA1651 /* OrdersPersistentStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersPersistentStorageMock.swift; sourceTree = "<group>"; };
+		98F0307327C3AD9A00AA1651 /* OrderCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCellViewModelTests.swift; sourceTree = "<group>"; };
+		98F0307527C3AE6B00AA1651 /* Order+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+Mock.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 		6375C07127BEC2DC008D0DC8 /* CopperChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				98F0307227C3AD8B00AA1651 /* Business logic */,
 				98F0301D27C146F200AA1651 /* Copper API */,
 				98F0300A27C13EC100AA1651 /* Helpers */,
 				98F0301C27C143DF00AA1651 /* JSON */,
@@ -267,10 +270,10 @@
 		98F0300A27C13EC100AA1651 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				98F0300C27C13EF300AA1651 /* CombineXCTestCase.swift */,
 				98F0306E27C3A22900AA1651 /* DecodingError+Equatable.swift */,
 				98F0302027C1493500AA1651 /* JSONLoader.swift */,
 				98F0301427C13FB500AA1651 /* NetworkingError+Equatable.swift */,
+				98F0307527C3AE6B00AA1651 /* Order+Mock.swift */,
 				98F0302627C14E5000AA1651 /* OrdersError+Equatable.swift */,
 			);
 			path = Helpers;
@@ -377,6 +380,14 @@
 				98F0303B27C169AD00AA1651 /* OFL.txt */,
 			);
 			path = "IBM Plex Sans";
+			sourceTree = "<group>";
+		};
+		98F0307227C3AD8B00AA1651 /* Business logic */ = {
+			isa = PBXGroup;
+			children = (
+				98F0307327C3AD9A00AA1651 /* OrderCellViewModelTests.swift */,
+			);
+			path = "Business logic";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -559,10 +570,11 @@
 				98F0301227C13F1900AA1651 /* URLSessionMock.swift in Sources */,
 				98F0302527C14DB500AA1651 /* RemoteOrdersDataProviderTests.swift in Sources */,
 				98F0301527C13FB500AA1651 /* NetworkingError+Equatable.swift in Sources */,
-				98F0300D27C13EF300AA1651 /* CombineXCTestCase.swift in Sources */,
 				98F0307127C3AB1800AA1651 /* OrdersPersistentStorageMock.swift in Sources */,
+				98F0307427C3AD9A00AA1651 /* OrderCellViewModelTests.swift in Sources */,
 				98F0301327C13F1900AA1651 /* NetworkMock.swift in Sources */,
 				98F0302127C1493500AA1651 /* JSONLoader.swift in Sources */,
+				98F0307627C3AE6B00AA1651 /* Order+Mock.swift in Sources */,
 				98F0300827C13E9A00AA1651 /* NetworkTests.swift in Sources */,
 				98F0301F27C1470D00AA1651 /* OrderResponseModelTests.swift in Sources */,
 				98F0301127C13F1900AA1651 /* URLProtocolMock.swift in Sources */,

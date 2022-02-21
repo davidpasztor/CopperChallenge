@@ -6,10 +6,9 @@
 //
 
 import XCTest
-import Combine
 @testable import CopperChallenge
 
-final class RemoteOrdersDataProviderTests: CombineXCTestCase {
+final class RemoteOrdersDataProviderTests: XCTestCase {
     func testFetchOrdersSuccess() async throws {
         // Given an OrdersResponseModel JSON
         let responseData = try JSONLoader.loadJSONData(fileName: "Orders")
