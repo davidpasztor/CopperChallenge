@@ -63,6 +63,10 @@
 		98F0307127C3AB1800AA1651 /* OrdersPersistentStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0307027C3AB1800AA1651 /* OrdersPersistentStorageMock.swift */; };
 		98F0307427C3AD9A00AA1651 /* OrderCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0307327C3AD9A00AA1651 /* OrderCellViewModelTests.swift */; };
 		98F0307627C3AE6B00AA1651 /* Order+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0307527C3AE6B00AA1651 /* Order+Mock.swift */; };
+		98F0307827C3BD0D00AA1651 /* OrderListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0307727C3BD0D00AA1651 /* OrderListViewModelTests.swift */; };
+		98F0307A27C3C6F500AA1651 /* LoadingState+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0307927C3C6F500AA1651 /* LoadingState+Equatable.swift */; };
+		98F0307C27C3C77A00AA1651 /* OrdersDataProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0307B27C3C77A00AA1651 /* OrdersDataProviderMock.swift */; };
+		98F0307E27C3CA9400AA1651 /* CombineXCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0307D27C3CA9300AA1651 /* CombineXCTestCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +148,10 @@
 		98F0307027C3AB1800AA1651 /* OrdersPersistentStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersPersistentStorageMock.swift; sourceTree = "<group>"; };
 		98F0307327C3AD9A00AA1651 /* OrderCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCellViewModelTests.swift; sourceTree = "<group>"; };
 		98F0307527C3AE6B00AA1651 /* Order+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+Mock.swift"; sourceTree = "<group>"; };
+		98F0307727C3BD0D00AA1651 /* OrderListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewModelTests.swift; sourceTree = "<group>"; };
+		98F0307927C3C6F500AA1651 /* LoadingState+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoadingState+Equatable.swift"; sourceTree = "<group>"; };
+		98F0307B27C3C77A00AA1651 /* OrdersDataProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersDataProviderMock.swift; sourceTree = "<group>"; };
+		98F0307D27C3CA9300AA1651 /* CombineXCTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineXCTestCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,8 +278,10 @@
 		98F0300A27C13EC100AA1651 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				98F0307D27C3CA9300AA1651 /* CombineXCTestCase.swift */,
 				98F0306E27C3A22900AA1651 /* DecodingError+Equatable.swift */,
 				98F0302027C1493500AA1651 /* JSONLoader.swift */,
+				98F0307927C3C6F500AA1651 /* LoadingState+Equatable.swift */,
 				98F0301427C13FB500AA1651 /* NetworkingError+Equatable.swift */,
 				98F0307527C3AE6B00AA1651 /* Order+Mock.swift */,
 				98F0302627C14E5000AA1651 /* OrdersError+Equatable.swift */,
@@ -283,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				98F0301027C13F1900AA1651 /* NetworkMock.swift */,
+				98F0307B27C3C77A00AA1651 /* OrdersDataProviderMock.swift */,
 				98F0307027C3AB1800AA1651 /* OrdersPersistentStorageMock.swift */,
 				98F0300E27C13F1900AA1651 /* URLProtocolMock.swift */,
 				98F0300F27C13F1900AA1651 /* URLSessionMock.swift */,
@@ -386,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				98F0307327C3AD9A00AA1651 /* OrderCellViewModelTests.swift */,
+				98F0307727C3BD0D00AA1651 /* OrderListViewModelTests.swift */,
 			);
 			path = "Business logic";
 			sourceTree = "<group>";
@@ -567,12 +579,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				98F0302727C14E5000AA1651 /* OrdersError+Equatable.swift in Sources */,
+				98F0307E27C3CA9400AA1651 /* CombineXCTestCase.swift in Sources */,
 				98F0301227C13F1900AA1651 /* URLSessionMock.swift in Sources */,
 				98F0302527C14DB500AA1651 /* RemoteOrdersDataProviderTests.swift in Sources */,
 				98F0301527C13FB500AA1651 /* NetworkingError+Equatable.swift in Sources */,
 				98F0307127C3AB1800AA1651 /* OrdersPersistentStorageMock.swift in Sources */,
+				98F0307C27C3C77A00AA1651 /* OrdersDataProviderMock.swift in Sources */,
 				98F0307427C3AD9A00AA1651 /* OrderCellViewModelTests.swift in Sources */,
 				98F0301327C13F1900AA1651 /* NetworkMock.swift in Sources */,
+				98F0307A27C3C6F500AA1651 /* LoadingState+Equatable.swift in Sources */,
+				98F0307827C3BD0D00AA1651 /* OrderListViewModelTests.swift in Sources */,
 				98F0302127C1493500AA1651 /* JSONLoader.swift in Sources */,
 				98F0307627C3AE6B00AA1651 /* Order+Mock.swift in Sources */,
 				98F0300827C13E9A00AA1651 /* NetworkTests.swift in Sources */,

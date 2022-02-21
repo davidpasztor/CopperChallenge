@@ -10,13 +10,14 @@ import Foundation
 import CoreData
 import OSLog
 
-protocol OrdersDataProviderProtocol {
+protocol OrdersDataProvider {
+    /// Fetch orders
     func fetchOrders() async throws
-
+    /// Whether there are cached orders in the storage
     func hasCachedOrders() throws -> Bool
 }
 
-final class RemoteOrdersDataProvider: OrdersDataProviderProtocol {
+final class RemoteOrdersDataProvider: OrdersDataProvider {
     private let network: NetworkProtocol
     private let cachedOrdersDataProvider: OrdersPersistentStorage
 
@@ -27,6 +28,7 @@ final class RemoteOrdersDataProvider: OrdersDataProviderProtocol {
     /**
      Designated initialiser.
      - parameter network: `NetworkProtocol` instance to use for the networking. If no value is passed in, a default instance will be created.
+     - parameter cachedOrdersDataProvider: `OrdersPersistentStorage` to use for caching the orders. The default input argument will store orders in a persistent storage.
      */
     init(network: NetworkProtocol? = nil, cachedOrdersDataProvider: OrdersPersistentStorage = CachedOrdersDataProvider.shared) {
         self.network = network ?? Network()
@@ -34,6 +36,7 @@ final class RemoteOrdersDataProvider: OrdersDataProviderProtocol {
     }
 
     func fetchOrders() async throws {
+        // Only fetch orders if we don't already have them cached
         guard try !cachedOrdersDataProvider.hasCachedOrders() else { return }
 
         let url = try CopperEndpoint.orders.url

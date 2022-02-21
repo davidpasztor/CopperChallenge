@@ -31,7 +31,7 @@ public final class OrderCellViewModel {
             self.amount = Self.formattedAmount(order.amount.decimalValue, currency: order.currency, type: orderType)
             self.currency = Self.formatted(currency: order.currency, orderType: orderType)
         } else {
-            // TODO: figure out a way to store the enum type in CoreData and hence avoid this fallback
+            // We should never reach this code branch, since we are always saving Orders using the enum OrderType, however, due to Obj-C limitations, we cannot store the OrderType enum directly in CoreData
             self.amount = ""
             self.currency = ""
         }
