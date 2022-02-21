@@ -17,39 +17,24 @@ final class NetworkTests: CombineXCTestCase {
         URLProtocolMock.reset()
     }
 
-    func testNonHTTPResponse() throws {
-        var valueReceived: String?
-        var completionReceived: Subscribers.Completion<NetworkingError>?
-
-        let completionExpectation = expectation(description: "Network.decodableRequestPublisher should have completed")
-
+    func testNonHTTPResponse() async throws {
         // Given a URLSession which returns a non-HTTP response for a specific URL
         let url = try XCTUnwrap(URL(string: "https://testNonHTTPResponse.com"))
         let urlSession = URLSession.mock(for: url, response: URLResponse(), data: nil)
         // And a Network object initialised with this URLSession
         let network = Network(urlSession: urlSession)
 
-        // When creating a subscription to decodableRequestPublisher called with the specified URL on the Network instance
-        network.decodableRequestPublisher(for: url, responseModelType: String.self).sink(receiveCompletion: { completion in
-            completionReceived = completion
-            completionExpectation.fulfill()
-        }, receiveValue: {
-            valueReceived = $0
-        }).store(in: &subscriptions)
-
-        // Then the publisher fails with the expected error without emitting any values
-        let expectedError = NetworkingError.nonHTTPResponse
-        waitForExpectations(timeout: 1.0, handler: nil)
-        XCTAssertNil(valueReceived)
-        XCTAssertEqual(completionReceived, .failure(expectedError))
+        do {
+            // When calling decodableRequest with the specified URL on the network instance
+            _ = try await network.decodableRequest(for: url, responseModelType: String.self)
+        } catch let networkingError as NetworkingError {
+            // Then it throws a NetworkingError.nonHTTPResponse
+            let expectedError = NetworkingError.nonHTTPResponse
+            XCTAssertEqual(networkingError, expectedError)
+        }
     }
 
-    func testUnsuccessfulStatusCode() throws {
-        var valueReceived: String?
-        var completionReceived: Subscribers.Completion<NetworkingError>?
-
-        let completionExpectation = expectation(description: "Network.decodableRequestPublisher should have completed")
-
+    func testUnsuccessfulStatusCode() async throws {
         // Given a URLSession which returns a non success (<200 or >300) status code for a specific URL
         let url = try XCTUnwrap(URL(string: "https://testUnsuccessfulStatusCode.com"))
         let statusCode = 401
@@ -58,27 +43,17 @@ final class NetworkTests: CombineXCTestCase {
         // And a Network object initialised with this URLSession
         let network = Network(urlSession: urlSession)
 
-        // When creating a subscription to decodableRequestPublisher called with the specified URL on the Network instance
-        network.decodableRequestPublisher(for: url, responseModelType: String.self).sink(receiveCompletion: { completion in
-            completionReceived = completion
-            completionExpectation.fulfill()
-        }, receiveValue: {
-            valueReceived = $0
-        }).store(in: &subscriptions)
-
-        // Then the publisher fails with the expected error without emitting any values
-        let expectedError = NetworkingError.unexpectedStatusCode(statusCode)
-        waitForExpectations(timeout: 1.0, handler: nil)
-        XCTAssertNil(valueReceived)
-        XCTAssertEqual(completionReceived, .failure(expectedError))
+        do {
+            // When calling decodableRequest with the specified URL on the network instance
+            _ = try await network.decodableRequest(for: url, responseModelType: String.self)
+        } catch let networkingError as NetworkingError {
+            // Then it throws a NetworkingError.unexpectedStatusCode
+            let expectedError = NetworkingError.unexpectedStatusCode(statusCode)
+            XCTAssertEqual(networkingError, expectedError)
+        }
     }
 
-    func testDecodingError() throws {
-        var valueReceived: String?
-        var completionReceived: Subscribers.Completion<NetworkingError>?
-
-        let completionExpectation = expectation(description: "Network.decodableRequestPublisher should have completed")
-
+    func testDecodingError() async throws {
         // Given a URLSession which returns an unexpected JSON for a specific URL
         let url = try XCTUnwrap(URL(string: "https://testDecodingError.com"))
         // Return an Int, while expecting a String in the JSON response
@@ -87,26 +62,17 @@ final class NetworkTests: CombineXCTestCase {
         // And a Network object initialised with this URLSession
         let network = Network(urlSession: urlSession)
 
-        // When creating a subscription to decodableRequestPublisher called with the specified URL on the Network instance
-        network.decodableRequestPublisher(for: url, responseModelType: String.self).sink(receiveCompletion: { completion in
-            completionReceived = completion
-            completionExpectation.fulfill()
-        }, receiveValue: {
-            valueReceived = $0
-        }).store(in: &subscriptions)
-
-        // Then the publisher fails with the expected error without emitting any values
-        let expectedError = NetworkingError.decoding(.typeMismatch(Int.self, .init(codingPath: [], debugDescription: "")))
-        waitForExpectations(timeout: 1.0, handler: nil)
-        XCTAssertNil(valueReceived)
-        XCTAssertEqual(completionReceived, .failure(expectedError))
+        do {
+            // When calling decodableRequest with the specified URL on the network instance
+            _ = try await network.decodableRequest(for: url, responseModelType: String.self)
+        } catch let decodingError as DecodingError {
+            // Then it throws a NetworkingError.decoding
+            let expectedError = DecodingError.typeMismatch(Int.self, .init(codingPath: [], debugDescription: ""))
+            XCTAssertEqual(decodingError, expectedError)
+        }
     }
 
-    func testSuccess() throws {
-        var valueReceived: String?
-        var completionReceived: Subscribers.Completion<NetworkingError>?
-
-        let completionExpectation = expectation(description: "Network.decodableRequestPublisher should have completed")
+    func testSuccess() async throws {
         let expectedValue = "success"
 
         // Given a URLSession which returns a success status code and the expected JSON for a specific URL
@@ -117,18 +83,10 @@ final class NetworkTests: CombineXCTestCase {
         // And a Network object initialised with this URLSession
         let network = Network(urlSession: urlSession)
 
-        // When creating a subscription to decodableRequestPublisher called with the specified URL on the Network instance
-        network.decodableRequestPublisher(for: url, responseModelType: String.self).sink(receiveCompletion: { completion in
-            completionReceived = completion
-            completionExpectation.fulfill()
-        }, receiveValue: {
-            valueReceived = $0
-        }).store(in: &subscriptions)
-
-        // Then the publisher succeeds after emitting the expected value
-        waitForExpectations(timeout: 1.0, handler: nil)
+        // When calling decodableRequest with the specified URL on the network instance
+        let valueReceived = try await network.decodableRequest(for: url, responseModelType: String.self)
+        // It decodes the expected value
         XCTAssertEqual(valueReceived, expectedValue)
-        XCTAssertEqual(completionReceived, .finished)
     }
 
     func testURLError() {

@@ -23,17 +23,12 @@ class NetworkMock: NetworkProtocol {
         self.jsonDecoder = jsonDecoder
     }
 
-    func decodableRequestPublisher<ResponseModel: Decodable>(for url: URL, responseModelType: ResponseModel.Type) -> AnyPublisher<ResponseModel, NetworkingError> {
+    func decodableRequest<ResponseModel>(for url: URL, responseModelType: ResponseModel.Type) async throws -> ResponseModel where ResponseModel : Decodable {
         switch requestResult {
         case let .success(data):
-            do {
-                let decodedModel = try jsonDecoder.decode(ResponseModel.self, from: data)
-                return Just(decodedModel).setFailureType(to: NetworkingError.self).eraseToAnyPublisher()
-            } catch {
-                return Fail(error: .generic(error)).eraseToAnyPublisher()
-            }
+            return try jsonDecoder.decode(ResponseModel.self, from: data)
         case let .failure(error):
-            return Fail(error: error).eraseToAnyPublisher()
+            throw error
         }
     }
 }
