@@ -8,6 +8,8 @@
 @testable import CopperChallenge
 
 final class OrdersDataProviderMock: OrdersDataProvider {
+    var cachedOrdersDataProvider: OrdersPersistentStorage
+
     /// The value to be returned by the `hasCachedOrders` method
     var hasCachedOrdersValue: Bool
     /// The result to use in the `fetchOrders` method.
@@ -21,6 +23,7 @@ final class OrdersDataProviderMock: OrdersDataProvider {
     init(hasCachedOrders: Bool = false, fetchOrdersResult: Result<Void, Error> = .success(Void())) {
         self.hasCachedOrdersValue = hasCachedOrders
         self.fetchOrdersResult = fetchOrdersResult
+        self.cachedOrdersDataProvider = OrdersPersistentStorageMock(hasCachedOrders: hasCachedOrdersValue)
     }
 
     func fetchOrders() async throws {
