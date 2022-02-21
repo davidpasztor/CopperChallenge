@@ -61,6 +61,7 @@
 		98F0306927C2E00100AA1651 /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F0304727C169AD00AA1651 /* IBMPlexSans-Bold.ttf */; };
 		98F0306D27C39F9E00AA1651 /* CachedOrdersDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0306C27C39F9E00AA1651 /* CachedOrdersDataProvider.swift */; };
 		98F0306F27C3A22900AA1651 /* DecodingError+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0306E27C3A22900AA1651 /* DecodingError+Equatable.swift */; };
+		98F0307127C3AB1800AA1651 /* OrdersPersistentStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0307027C3AB1800AA1651 /* OrdersPersistentStorageMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,7 @@
 		98F0306827C2DB7600AA1651 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		98F0306C27C39F9E00AA1651 /* CachedOrdersDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedOrdersDataProvider.swift; sourceTree = "<group>"; };
 		98F0306E27C3A22900AA1651 /* DecodingError+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DecodingError+Equatable.swift"; sourceTree = "<group>"; };
+		98F0307027C3AB1800AA1651 /* OrdersPersistentStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersPersistentStorageMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				98F0301027C13F1900AA1651 /* NetworkMock.swift */,
+				98F0307027C3AB1800AA1651 /* OrdersPersistentStorageMock.swift */,
 				98F0300E27C13F1900AA1651 /* URLProtocolMock.swift */,
 				98F0300F27C13F1900AA1651 /* URLSessionMock.swift */,
 			);
@@ -557,6 +560,7 @@
 				98F0302527C14DB500AA1651 /* RemoteOrdersDataProviderTests.swift in Sources */,
 				98F0301527C13FB500AA1651 /* NetworkingError+Equatable.swift in Sources */,
 				98F0300D27C13EF300AA1651 /* CombineXCTestCase.swift in Sources */,
+				98F0307127C3AB1800AA1651 /* OrdersPersistentStorageMock.swift in Sources */,
 				98F0301327C13F1900AA1651 /* NetworkMock.swift in Sources */,
 				98F0302127C1493500AA1651 /* JSONLoader.swift in Sources */,
 				98F0300827C13E9A00AA1651 /* NetworkTests.swift in Sources */,

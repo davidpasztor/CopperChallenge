@@ -16,7 +16,7 @@ final class RemoteOrdersDataProviderTests: CombineXCTestCase {
         // A NetworkMock initialised to return an OrdersResponseModel decoded from this JSON
         let network = NetworkMock(requestResults: .success(responseData))
         // and a RemoteOrdersDataProvider initialised with this NetworkMock
-        let dataProvider = RemoteOrdersDataProvider(network: network, cachedOrdersDataProvider: CachedOrdersDataProvider.preview)
+        let dataProvider = RemoteOrdersDataProvider(network: network, cachedOrdersDataProvider: OrdersPersistentStorageMock())
 
         // When calling fetchOrders on the data provider
         try await dataProvider.fetchOrders()
@@ -29,13 +29,13 @@ final class RemoteOrdersDataProviderTests: CombineXCTestCase {
         // A NetworkMock initialised to return this error
         let network = NetworkMock(requestResults: .failure(networkingError))
         // and a RemoteOrdersDataProvider initialised with this NetworkMock
-        let dataProvider = RemoteOrdersDataProvider(network: network, cachedOrdersDataProvider: CachedOrdersDataProvider.preview)
+        let dataProvider = RemoteOrdersDataProvider(network: network, cachedOrdersDataProvider: OrdersPersistentStorageMock())
 
         do {
             // When calling fetchOrders on the data provider
             _ = try await dataProvider.fetchOrders()
-        } catch let ordersError as OrdersError {
-            XCTAssertEqual(ordersError, .networking(networkingError))
+        } catch let networkingError as NetworkingError {
+            XCTAssertEqual(networkingError, networkingError)
         }
     }
 }
