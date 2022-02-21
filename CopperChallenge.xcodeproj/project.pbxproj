@@ -96,7 +96,6 @@
 		6375C07827BEC2DC008D0DC8 /* CopperChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CopperChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6375C07C27BEC2DC008D0DC8 /* CopperChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopperChallengeUITests.swift; sourceTree = "<group>"; };
 		6375C07E27BEC2DC008D0DC8 /* CopperChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopperChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		98F02FF527C13ABD00AA1651 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		98F02FFB27C13BD700AA1651 /* OrdersDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersDataProvider.swift; sourceTree = "<group>"; };
 		98F02FFD27C13C1200AA1651 /* CopperEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopperEndpoint.swift; sourceTree = "<group>"; };
 		98F02FFF27C13C9600AA1651 /* OrdersError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersError.swift; sourceTree = "<group>"; };
@@ -152,6 +151,7 @@
 		98F0307927C3C6F500AA1651 /* LoadingState+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoadingState+Equatable.swift"; sourceTree = "<group>"; };
 		98F0307B27C3C77A00AA1651 /* OrdersDataProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersDataProviderMock.swift; sourceTree = "<group>"; };
 		98F0307D27C3CA9300AA1651 /* CombineXCTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineXCTestCase.swift; sourceTree = "<group>"; };
+		98F0307F27C3E37900AA1651 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +202,7 @@
 		6375C05B27BEC2D8008D0DC8 /* CopperChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				98F0307F27C3E37900AA1651 /* README.md */,
 				98F0306827C2DB7600AA1651 /* Info.plist */,
 				98F0302227C14D6E00AA1651 /* Business Logic */,
 				98F02FFA27C13BC200AA1651 /* Copper API */,
@@ -211,7 +212,6 @@
 				6375C05C27BEC2D8008D0DC8 /* CopperChallengeApp.swift */,
 				6375C06727BEC2DC008D0DC8 /* CopperChallenge.xcdatamodeld */,
 				6375C06227BEC2DC008D0DC8 /* Preview Content */,
-				98F02FF527C13ABD00AA1651 /* README.md */,
 			);
 			path = CopperChallenge;
 			sourceTree = "<group>";
