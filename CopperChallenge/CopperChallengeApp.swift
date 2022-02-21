@@ -9,13 +9,20 @@ import SwiftUI
 
 @main
 struct CopperChallengeApp: App {
-    @StateObject private var ordersListViewModel = OrdersListViewModel(dataProvider: RemoteOrdersDataProvider())
+    let cachedOrdersDataProvider: CachedOrdersDataProvider
+    let ordersListViewModel: OrdersListViewModel
+
+    init() {
+        let cachedOrdersDataProvider = CachedOrdersDataProvider.shared
+        self.cachedOrdersDataProvider = cachedOrdersDataProvider
+        let ordersDataProvider = RemoteOrdersDataProvider(cachedOrdersDataProvider: cachedOrdersDataProvider)
+        self.ordersListViewModel = OrdersListViewModel(dataProvider: ordersDataProvider)
+    }
 
     var body: some Scene {
         WindowGroup {
             RootView(viewModel: ordersListViewModel)
-            // TODO: access this via the VM or at least via the data provider, not via the singleton
-                .environment(\.managedObjectContext, CachedOrdersDataProvider.shared.container.viewContext)
+                .environment(\.managedObjectContext, cachedOrdersDataProvider.container.viewContext)
         }
     }
 }

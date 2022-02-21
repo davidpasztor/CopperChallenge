@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct DownloadTransactionsView: View {
-    // TODO: No need to inject a whole VM (unless I move the texts to the VM as well), enough to inject the button action
-    @ObservedObject private var viewModel: OrdersListViewModel
+    private let downloadAction: () -> Void
 
-    init(viewModel: OrdersListViewModel) {
-        self.viewModel = viewModel
+    init(downloadAction: @escaping () -> Void) {
+        self.downloadAction = downloadAction
     }
 
     var body: some View {
@@ -40,11 +39,7 @@ struct DownloadTransactionsView: View {
     }
 
     private var downloadButton: some View {
-        Button(action: {
-            Task {
-                await viewModel.fetchOrders()
-            }
-        }) {
+        Button(action: downloadAction) {
             Text("Download")
                 .kerning(0.16)
                 .font(.custom(.ibmPlexSans(.semiBold), size: 16))
@@ -57,14 +52,14 @@ struct DownloadTransactionsView: View {
 }
 
 struct DownloadTransactionsView_Previews: PreviewProvider {
-    @StateObject private static var viewModel = OrdersListViewModel(dataProvider: RemoteOrdersDataProvider())
+    private static let viewModel = OrdersListViewModel(dataProvider: RemoteOrdersDataProvider(cachedOrdersDataProvider: CachedOrdersDataProvider.preview))
 
     static var previews: some View {
         Group {
-            DownloadTransactionsView(viewModel: viewModel)
+            DownloadTransactionsView(downloadAction: { Task { await viewModel.fetchOrders() }})
                 .preferredColorScheme(.dark)
 
-            DownloadTransactionsView(viewModel: viewModel)
+            DownloadTransactionsView(downloadAction: { Task { await viewModel.fetchOrders() }})
                 .preferredColorScheme(.light)
         }
     }

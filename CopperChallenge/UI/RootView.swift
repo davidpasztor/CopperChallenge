@@ -22,7 +22,11 @@ struct RootView: View {
         if viewModel.hasCachedOrders {
             ordersListView
         } else {
-            DownloadTransactionsView(viewModel: viewModel)
+            DownloadTransactionsView(downloadAction: {
+                Task {
+                    await viewModel.fetchOrders()
+                }
+            })
                 .withLoadingStateIndicator(viewModel.loadingState, loadingView: { loadingView }, errorView: { errorView })
         }
     }

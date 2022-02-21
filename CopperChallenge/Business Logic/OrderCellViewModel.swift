@@ -40,7 +40,6 @@ public final class OrderCellViewModel {
         self.transactionDate = Self.dateFormatter.string(from: order.createdAt)
     }
 
-    // TODO: if amount is > 1000, divide by 1000 and add K to the formatted amount
     static func formattedAmount(_ amount: Decimal, currency: String, type: OrderType) -> String {
         let prefix: String
         switch type {

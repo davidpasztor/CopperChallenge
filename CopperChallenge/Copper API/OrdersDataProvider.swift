@@ -11,15 +11,19 @@ import CoreData
 import OSLog
 
 protocol OrdersDataProvider {
-    /// Fetch orders
+    /// Fetch and cache orders if they are not already cached in `cachedOrdersDataProvider`
     func fetchOrders() async throws
     /// Whether there are cached orders in the storage
     func hasCachedOrders() throws -> Bool
+    /// Persistent storage for the fetched orders
+    var cachedOrdersDataProvider: OrdersPersistentStorage { get }
 }
 
+/// A data provider that fetches orders from a remote API, then caches them in a persistent store
 final class RemoteOrdersDataProvider: OrdersDataProvider {
+    let cachedOrdersDataProvider: OrdersPersistentStorage
+
     private let network: NetworkProtocol
-    private let cachedOrdersDataProvider: OrdersPersistentStorage
 
     func hasCachedOrders() throws -> Bool {
         try cachedOrdersDataProvider.hasCachedOrders()
